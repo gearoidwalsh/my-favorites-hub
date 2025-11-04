@@ -1,0 +1,17 @@
+# Render Blueprint for Easy Deployment
+# This file makes deployment to Render even easier!
+
+services:
+  - type: web
+    name: favorites-hub-backend
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: PORT
+        value: 5000
+
