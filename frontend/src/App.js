@@ -233,17 +233,17 @@ function IrelandSection() {
         <div>
           <div className="item-text">
             <h4 style={{ fontFamily: 'Playfair Display, serif', fontSize: '2.2rem', marginBottom: '20px', fontWeight: '700' }}>
-              Summers in the Emerald Isle
+              Summers in Ireland
             </h4>
             <p style={{ marginBottom: '30px' }}>
-              [PLACEHOLDER: Insert your story about spending summers in Ireland growing up. Talk about the places, the people, the memories that shaped you.]
+              Growing up, I spent most of my summers in Ireland. My parents, both Irish immigrants, were adamant that my brothers and I stayed connected to our roots — and I couldn't thank them enough for that. Here are some photos I've taken in Ireland over the years!
             </p>
           </div>
           
           <div className="sub-story">
-            <h4>My Irish Heritage</h4>
+            <h4>How My Parents Met</h4>
             <p>
-              [PLACEHOLDER: Insert story about your Irish parents, their journey, and how Irish culture has influenced your life.]
+              My parents actually met the year the World Cup was held in America. My dad, from Galway, and my mother, from Dublin, both decided to visit Boston that summer to support Ireland. They ran into each other in a bar, and now I'm here. San Mateo/Berkeley California. No place I'd rather be; Ireland and California.
             </p>
           </div>
         </div>
@@ -431,7 +431,7 @@ function CollegeSection() {
           <div className="sub-story">
             <h4>Voyager Consulting</h4>
             <p>
-              [PLACEHOLDER: Insert story about your experience with Voyager Consulting - what you learned, how you grew, and the impact it had on your career path.]
+              So as I'm writing this, I'm actually still kind of new to Voyager. I'm halfway through my first semester, but I've really enjoyed it so far. It's a huge change of environment from community college, and it's been so fun to experience everything. Good people in the club :) — And that's what matters to me.
             </p>
           </div>
         </div>
@@ -476,22 +476,32 @@ function DogsSection() {
         <div>
           <div className="item-text">
             <h4 style={{ fontFamily: 'Playfair Display, serif', fontSize: '2.2rem', marginBottom: '20px', fontWeight: '700' }}>
-              Man's Best Friend
+              Lucy & Animals
             </h4>
             <p>
-              [PLACEHOLDER: Insert story about your dog, your love for dogs in general, and your connection with animals.]
+              My dog Lucy is a beautiful dog I'm ngl. Fun fact about her is she can run insanely fast. When she was younger every time our family went to the beach with her people would come up and ask us how she was so fast XD.
             </p>
           </div>
         </div>
         
         <div className="polaroid-stack">
-          <div className="polaroid-single polaroid">
+          <div className="polaroid">
             <div className="polaroid-image" style={{
-              background: 'linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%)'
+              backgroundImage: 'url(/photos/Lucy.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
             }}>
-              [My Dog]
             </div>
-            <div className="polaroid-caption">Best friend 🐕</div>
+            <div className="polaroid-caption">Lucy the speedster 🐕</div>
+          </div>
+          <div className="polaroid">
+            <div className="polaroid-image" style={{
+              backgroundImage: 'url(/photos/Mamo.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}>
+            </div>
+            <div className="polaroid-caption">Mamo 🐾</div>
           </div>
         </div>
       </div>
@@ -805,14 +815,14 @@ function FamilySection() {
               The Foundation
             </h4>
             <p style={{ marginBottom: '30px' }}>
-              [PLACEHOLDER: Insert your story about your family - parents, siblings, what they mean to you, and how they've shaped who you are.]
+              I'm the youngest son of two Irish immigrants, Gearóid Breathnach and Gráinne Keegan, and the little brother to Aodán and Micheál. Everything I do ties back to them — my family here, and the one still in Ireland. They're the foundation that upholds my character, work ethic, and commitment to staying grounded.
             </p>
           </div>
           
           <div className="sub-story">
-            <h4>Family Moments</h4>
+            <h4>What They Taught Me</h4>
             <p>
-              [PLACEHOLDER: Share specific memories, traditions, or moments that defined your family relationships.]
+              The lessons that shaped me came from watching my parents rebuild a life from scratch, from hearing stories of home, and from realizing how much they gave up for my brothers and me. That's what drives me. I want every step I take to reflect their kindness, humility, and grit; and to carry our family name in the most positive light I can.
             </p>
           </div>
         </div>
