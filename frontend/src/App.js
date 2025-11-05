@@ -79,7 +79,7 @@ function App() {
       });
     }, options);
 
-    document.querySelectorAll('.essential-section, .feature-spread').forEach(section => {
+    document.querySelectorAll('.essential-section').forEach(section => {
       observer.observe(section);
     });
 
@@ -199,12 +199,6 @@ function App() {
         </div>
       </section>
 
-      {/* INTERSTITIAL SPREAD #1 */}
-      <section className="feature-spread">
-        <img src="/photos/Albufeira.png" alt="Feature" className="spread-image" loading="lazy" />
-        <p className="spread-quote">"Every trip back feels like returning to a second home."</p>
-      </section>
-
       {/* ESSENTIAL #03: FOOD - Triptych A */}
       <section id="food" className="essential-section" data-motif="food">
         <div className="section-callout">
@@ -267,12 +261,6 @@ function App() {
         </div>
       </section>
 
-      {/* INTERSTITIAL SPREAD #2 */}
-      <section className="feature-spread">
-        <img src="/photos/Donut.png" alt="Feature" className="spread-image" loading="lazy" />
-        <p className="spread-quote">"That ride, with those songs playing for the first time, is something I'll always cherish."</p>
-      </section>
-
       {/* ESSENTIAL #05: CSM→CAL - Triptych A */}
       <section id="college" className="essential-section">
         <div className="section-header">
@@ -329,12 +317,6 @@ function App() {
           
           <img src="/photos/Lucy.png" alt="Lucy" className="studio-image image-large" loading="lazy" />
         </div>
-      </section>
-
-      {/* INTERSTITIAL SPREAD #3 */}
-      <section className="feature-spread">
-        <img src="/photos/Lucy%20Smile.png" alt="Feature" className="spread-image" loading="lazy" />
-        <p className="spread-quote">"That smile brings joy to everyone who sees it."</p>
       </section>
 
       {/* ESSENTIAL #07: MOVIES */}
@@ -447,12 +429,6 @@ function App() {
         </div>
       </section>
 
-      {/* INTERSTITIAL SPREAD #4 */}
-      <section className="feature-spread">
-        <img src="/photos/Brothers.png" alt="Feature" className="spread-image" loading="lazy" />
-        <p className="spread-quote">"Fashion became one of the things we bonded over most."</p>
-      </section>
-
       {/* ESSENTIAL #09: SELF/SPIRITUAL GROWTH - With Idols Grid */}
       <section id="growth" className="essential-section">
         <div className="section-header">
@@ -485,7 +461,7 @@ function App() {
             <img src="/photos/Virgil.png" alt="Virgil Van Dijk" className="idol-image" loading="lazy" />
             <p className="idol-caption">
               <strong>Virgil Van Dijk</strong>
-              Leadership through composure and excellence.
+              What draws me to Virgil is his calm, composed presence on and off the field. He leads not through loudness, but through consistency and quiet confidence. He elevates everyone around him simply by being steady under pressure—a reminder that true leadership doesn't need to shout.
             </p>
           </div>
           
@@ -493,7 +469,7 @@ function App() {
             <img src="/photos/Curry.png" alt="Stephen Curry" className="idol-image" loading="lazy" />
             <p className="idol-caption">
               <strong>Stephen Curry</strong>
-              Humility and revolutionizing the game.
+              Steph revolutionized basketball not just with his skills, but with his humility and joy. He plays with a childlike passion that's infectious, yet carries himself with grace and integrity. He's proof that you can be elite and still stay grounded, uplift others, and find genuine happiness in what you do.
             </p>
           </div>
           
@@ -501,7 +477,7 @@ function App() {
             <img src="/photos/Erwin.png" alt="Erwin" className="idol-image" loading="lazy" />
             <p className="idol-caption">
               <strong>Erwin (Attack on Titan)</strong>
-              Sacrifice and strategic brilliance.
+              Erwin embodies strategic brilliance and selfless sacrifice. He makes impossible decisions for the greater good, always putting his people first even when it costs him everything. His unwavering commitment to a cause bigger than himself and his ability to inspire hope in the darkest moments is truly remarkable.
             </p>
           </div>
           
@@ -509,7 +485,7 @@ function App() {
             <img src="/photos/Klopp.png" alt="Jurgen Klopp" className="idol-image" loading="lazy" />
             <p className="idol-caption">
               <strong>Jurgen Klopp</strong>
-              Passion, authenticity, and building a family.
+              Klopp's authenticity is magnetic. He builds family-like bonds with his players and fans, leading with passion, humor, and genuine care. His emotional intelligence and ability to connect with people on a human level—celebrating wins together and supporting through losses—shows what leadership rooted in love and respect looks like.
             </p>
           </div>
         </div>
