@@ -143,9 +143,14 @@ body {
   padding: 100px 48px;
   max-width: 1400px;
   margin: 0 auto;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.essential-section:not(.visible) {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .essential-section.visible {
@@ -215,6 +220,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .layout-2 .hero-image {
@@ -225,6 +231,13 @@ body {
 
 .layout-2 .section-text {
   text-align: center;
+  max-width: 800px;
+}
+
+.layout-2 .image-grid,
+.layout-2 .movie-posters-grid {
+  width: 100%;
+  max-width: 1200px;
 }
 
 /* Layout 3: Three-column staggered grid with text in left column */

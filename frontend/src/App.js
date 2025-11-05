@@ -160,12 +160,10 @@ function App() {
           
           <div className="video-container">
             <video controls>
-              <source src="/copy_BBC5C62F-D14E-42EE-9E3C-ACFBB79A868A.mov" type="video/quicktime" />
+              <source src="/photos/copy_BBC5C62F-D14E-42EE-9E3C-ACFBB79A868A.mov" type="video/quicktime" />
               Your browser does not support the video tag.
             </video>
           </div>
-          
-          <img src="/photos/Fantasy.png" alt="Fantasy Football" className="editorial-image" />
         </div>
       </section>
 
