@@ -1,4 +1,4 @@
-/* ==================== EDITORIAL REDESIGN ==================== */
+/* ==================== MAGAZINE-STYLE EDITORIAL REDESIGN ==================== */
 /* Google Fonts Import */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap');
 
@@ -22,135 +22,105 @@ body {
   color: #111111;
   line-height: 1.7;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
-/* ==================== SCROLL PROGRESS BAR ==================== */
-.scroll-progress-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: #111111;
-  z-index: 9999;
-  transition: width 0.1s ease;
-}
-
-/* ==================== HEADER & NAVIGATION ==================== */
-.header {
+/* ==================== NUMBERED ESSENTIALS RAIL ==================== */
+.essentials-rail {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background: #051635;
+  background: #FFFFFF;
+  border-bottom: 1px solid #E5E5E5;
   z-index: 1000;
-  padding: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px 48px;
 }
 
-.nav-container {
+.rail-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 32px 48px;
-}
-
-.site-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #FFFFFF;
-  margin-bottom: 24px;
-  letter-spacing: -0.5px;
-}
-
-.nav-links {
   display: flex;
-  gap: 40px;
-  list-style: none;
-  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
+  gap: 24px;
 }
 
-.nav-link {
+.rail-module {
   font-family: 'Space Mono', monospace;
   font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  letter-spacing: 0.1em;
   color: #9A9A9A;
   cursor: pointer;
-  transition: color 0.3s ease;
-  font-weight: 400;
+  transition: all 0.3s ease;
   border: none;
   background: none;
-  padding: 0;
+  padding: 8px 12px;
+  text-transform: uppercase;
 }
 
-.nav-link:hover {
-  color: #FFFFFF;
+.rail-module:hover {
+  color: #111111;
+  transform: scale(1.15);
 }
 
-.nav-link.active {
-  color: #FFFFFF;
+.rail-module.active {
+  color: #111111;
   font-weight: 700;
 }
 
-/* ==================== INTRO SECTION ==================== */
-.intro-section {
-  margin-top: 160px;
-  padding: 120px 48px;
-  max-width: 1200px;
+/* ==================== PROGRESS BAR ==================== */
+.scroll-progress-bar {
+  position: fixed;
+  top: 61px;
+  left: 0;
+  height: 2px;
+  background: #111111;
+  z-index: 999;
+  transition: width 0.1s ease;
+}
+
+/* ==================== MAGAZINE HERO ==================== */
+.magazine-hero {
+  margin-top: 80px;
+  padding: 80px 48px 120px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
 }
 
-.intro-label {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #9A9A9A;
-  margin-bottom: 24px;
-}
-
-.intro-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 4rem;
-  font-weight: 900;
-  line-height: 1.1;
+.hero-montage {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
   margin-bottom: 48px;
-  color: #111111;
-  letter-spacing: -1px;
 }
 
-.intro-text {
+.hero-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 1px solid #E5E5E5;
+}
+
+.hero-dek {
   font-family: 'Inter', sans-serif;
-  font-size: 1.15rem;
-  line-height: 1.9;
+  font-size: 1.2rem;
+  line-height: 1.6;
   color: #333333;
-  max-width: 650px;
-  margin: 0 auto 40px;
-}
-
-.intro-divider {
-  width: 100px;
-  height: 1px;
-  background: #E5E5E5;
-  margin: 60px auto;
+  max-width: 600px;
+  margin: 0;
 }
 
 /* ==================== ESSENTIAL SECTIONS ==================== */
 .essential-section {
-  padding: 100px 48px;
+  padding: 120px 48px;
   max-width: 1400px;
   margin: 0 auto;
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.essential-section:not(.visible) {
+  position: relative;
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(12px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .essential-section.visible {
@@ -158,7 +128,53 @@ body {
   transform: translateY(0);
 }
 
-.section-label {
+/* Section-specific micro-motifs */
+.essential-section[data-motif="sports"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(0,0,0,0.02) 49px, rgba(0,0,0,0.02) 50px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.essential-section[data-motif="ireland"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: repeating-linear-gradient(90deg, rgba(34,139,34,0.01) 0px, rgba(34,139,34,0.01) 1px, transparent 1px, transparent 100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.essential-section[data-motif="food"] .section-callout {
+  position: absolute;
+  top: 120px;
+  right: 48px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9A9A9A;
+  line-height: 1.8;
+  text-align: right;
+  max-width: 120px;
+}
+
+.section-header {
+  margin-bottom: 64px;
+  position: relative;
+  z-index: 1;
+}
+
+.section-number {
   font-family: 'Space Mono', monospace;
   font-size: 0.7rem;
   letter-spacing: 0.15em;
@@ -171,23 +187,23 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: 5.5rem;
   font-weight: 900;
-  line-height: 1.1;
-  margin-bottom: 40px;
+  line-height: 1.05;
+  margin-bottom: 24px;
   color: #111111;
   letter-spacing: -2px;
 }
 
 .section-divider {
-  width: 100%;
+  width: 80px;
   height: 1px;
-  background: #E5E5E5;
-  margin-bottom: 48px;
+  background: #111111;
+  margin-bottom: 32px;
 }
 
 .section-text {
   font-family: 'Inter', sans-serif;
   font-size: 1.05rem;
-  line-height: 1.9;
+  line-height: 1.8;
   color: #333333;
   max-width: 650px;
 }
@@ -198,139 +214,83 @@ body {
 
 .section-text h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  margin-top: 48px;
-  margin-bottom: 20px;
+  margin-top: 40px;
+  margin-bottom: 16px;
   color: #111111;
 }
 
-/* ==================== LAYOUT PATTERNS ==================== */
+/* ==================== TRIPTYCH IMAGE LAYOUTS ==================== */
 
-/* Layout 1: Text Left, Images Right (Two-column grid) */
-.layout-1 {
+/* Triptych A: 1 large left + 2 stacked right */
+.triptych-a {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
 }
 
-/* Layout 2: Full-width hero image with centered text below */
-.layout-2 {
+.triptych-a .image-large {
+  grid-row: span 2;
+}
+
+.triptych-a .image-stack {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
+  gap: 20px;
 }
 
-.layout-2 .hero-image {
-  width: 100%;
-  max-width: 1200px;
-  margin-bottom: 64px;
-}
-
-.layout-2 .section-text {
-  text-align: center;
-  max-width: 800px;
-}
-
-.layout-2 .image-grid,
-.layout-2 .movie-posters-grid {
-  width: 100%;
-  max-width: 1200px;
-}
-
-/* Layout 3: Three-column staggered grid with text in left column */
-.layout-3 {
+/* Triptych B: 2 stacked left + 1 large right (inverted) */
+.triptych-b {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 80px;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 20px;
 }
 
-.layout-3 .image-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
-}
-
-/* Layout 4: 60% image / 40% text split */
-.layout-4 {
-  display: grid;
-  grid-template-columns: 3fr 2fr;
-  gap: 80px;
-  align-items: center;
-}
-
-/* Layout 5: Mirror of Layout 1 (Text Right, Images Left) */
-.layout-5 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-}
-
-.layout-5 .section-text {
-  order: 2;
-}
-
-.layout-5 .image-container {
-  order: 1;
-}
-
-/* ==================== IMAGE STYLING ==================== */
-.image-container {
+.triptych-b .image-stack {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 20px;
 }
 
-.editorial-image {
+.triptych-b .image-large {
+  grid-row: span 2;
+}
+
+/* Studio-style image */
+.studio-image {
   width: 100%;
-  height: auto;
-  border-radius: 4px;
-  border: 1px solid #E5E5E5;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
+  border: 1px solid #E5E5E5;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.editorial-image:hover {
+.studio-image.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.studio-image:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
 }
 
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
-}
-
-.image-grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.image-caption {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
-  color: #9A9A9A;
-  margin-top: 12px;
-  letter-spacing: 0.05em;
-}
-
-/* Video embed styling */
-.video-container {
+/* Video container */
+.video-frame {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  margin-bottom: 24px;
-  border-radius: 4px;
-  overflow: hidden;
+  aspect-ratio: 4 / 5;
   border: 1px solid #E5E5E5;
+  overflow: hidden;
+  background: #000;
 }
 
-.video-container iframe,
-.video-container video {
+.video-frame iframe,
+.video-frame video {
   position: absolute;
   top: 0;
   left: 0;
@@ -339,26 +299,113 @@ body {
   object-fit: cover;
 }
 
-/* ==================== MOVIE POSTERS SECTION ==================== */
+/* ==================== INTERSTITIAL FEATURE SPREADS ==================== */
+.feature-spread {
+  padding: 160px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+.spread-image {
+  width: 100%;
+  max-width: 1000px;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border: 1px solid #E5E5E5;
+}
+
+.spread-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #111111;
+  text-align: center;
+  max-width: 700px;
+  font-style: italic;
+}
+
+/* ==================== MOVIES SECTION ==================== */
+.movie-clips-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 64px 0;
+}
+
+.movie-clip {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid #E5E5E5;
+  overflow: hidden;
+}
+
+.movie-clip iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .movie-posters-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
   margin-top: 64px;
 }
 
 .movie-poster {
   width: 100%;
-  aspect-ratio: 2/3;
+  aspect-ratio: 2 / 3;
   object-fit: cover;
-  border-radius: 4px;
   border: 1px solid #E5E5E5;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .movie-poster:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== IDOLS GRID (Self Growth) ==================== */
+.idols-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.idol-item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.idol-image {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 1px solid #E5E5E5;
+}
+
+.idol-caption {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #333333;
+}
+
+.idol-caption strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #111111;
 }
 
 /* ==================== FOOTER ==================== */
@@ -415,95 +462,94 @@ body {
 
 /* ==================== RESPONSIVE DESIGN ==================== */
 @media (max-width: 1024px) {
-  .layout-1,
-  .layout-3,
-  .layout-4,
-  .layout-5 {
+  .triptych-a,
+  .triptych-b {
     grid-template-columns: 1fr;
   }
 
-  .layout-5 .section-text {
-    order: 1;
-  }
-
-  .layout-5 .image-container {
-    order: 2;
+  .triptych-a .image-large,
+  .triptych-b .image-large {
+    grid-row: span 1;
   }
 
   .section-title {
     font-size: 3.5rem;
   }
 
-  .intro-title {
-    font-size: 3.2rem;
+  .movie-clips-grid {
+    grid-template-columns: 1fr;
   }
 
-  .nav-links {
-    gap: 24px;
+  .idols-grid {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 768px) {
-  .nav-container {
-    padding: 24px 32px;
+  .essentials-rail {
+    padding: 16px 24px;
   }
 
-  .nav-links {
-    gap: 20px;
+  .rail-container {
+    gap: 12px;
+    flex-wrap: wrap;
   }
 
-  .nav-link {
+  .rail-module {
     font-size: 0.65rem;
+    padding: 6px 8px;
   }
 
-  .intro-section {
+  .magazine-hero {
+    padding: 60px 32px 80px;
+  }
+
+  .hero-montage {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .hero-dek {
+    font-size: 1rem;
+  }
+
+  .essential-section {
     padding: 80px 32px;
-    margin-top: 140px;
-  }
-
-  .intro-title {
-    font-size: 2.5rem;
   }
 
   .section-title {
     font-size: 2.8rem;
   }
 
-  .essential-section {
-    padding: 60px 32px;
+  .feature-spread {
+    padding: 100px 32px;
   }
 
-  .image-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .image-grid-3 {
-    grid-template-columns: 1fr;
+  .spread-quote {
+    font-size: 1.5rem;
   }
 
   .movie-posters-grid {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
   }
 }
 
-/* ==================== UTILITY CLASSES ==================== */
-.spacer {
-  height: 80px;
+/* ==================== PERFORMANCE & ACCESSIBILITY ==================== */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.text-center {
-  text-align: center;
+img[loading="lazy"].loaded {
+  opacity: 1;
 }
 
-.mb-small {
-  margin-bottom: 24px;
-}
-
-.mb-medium {
-  margin-bottom: 48px;
-}
-
-.mb-large {
-  margin-bottom: 64px;
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
