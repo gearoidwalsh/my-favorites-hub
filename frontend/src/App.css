@@ -164,12 +164,12 @@ body {
 
 .section-title {
   font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 32px;
+  font-size: 5.5rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 40px;
   color: #111111;
-  letter-spacing: -1px;
+  letter-spacing: -2px;
 }
 
 .section-divider {
@@ -418,11 +418,11 @@ body {
   }
 
   .section-title {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
   }
 
   .intro-title {
-    font-size: 2.8rem;
+    font-size: 3.2rem;
   }
 
   .nav-links {
@@ -449,11 +449,11 @@ body {
   }
 
   .intro-title {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: 2.8rem;
   }
 
   .essential-section {
