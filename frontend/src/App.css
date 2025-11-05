@@ -1,6 +1,8 @@
-/* GQ 10 Essentials x Scrapbook - Gearoid's Story */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+/* ==================== EDITORIAL REDESIGN ==================== */
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap');
 
+/* ==================== GLOBAL RESET & BASE STYLES ==================== */
 * {
   margin: 0;
   padding: 0;
@@ -11,685 +13,484 @@ html {
   scroll-behavior: smooth;
 }
 
-.App {
-  min-height: 100vh;
-  background: #f8f9fa;
-  position: relative;
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #FFFFFF;
+  color: #111111;
+  line-height: 1.7;
+  font-size: 16px;
 }
 
-/* ==================== HERO HEADER ==================== */
-.hero-header {
-  position: relative;
-  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
-  padding: 100px 40px 80px;
-  text-align: center;
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
-  padding-bottom: 120px;
-  overflow: hidden;
-}
-
-/* Diamond pattern overlay */
-.hero-header::before {
-  content: '';
-  position: absolute;
+/* ==================== SCROLL PROGRESS BAR ==================== */
+.scroll-progress-bar {
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    linear-gradient(45deg, rgba(255, 255, 255, 0.03) 25%, transparent 25%),
-    linear-gradient(-45deg, rgba(255, 255, 255, 0.03) 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.03) 75%),
-    linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.03) 75%);
-  background-size: 80px 80px;
-  background-position: 0 0, 0 40px, 40px -40px, -40px 0px;
-  pointer-events: none;
+  height: 3px;
+  background: #111111;
+  z-index: 9999;
+  transition: width 0.1s ease;
 }
 
-.main-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 7rem;
-  font-weight: 400;
-  color: #fff;
-  letter-spacing: 0.08em;
-  margin-bottom: 10px;
-  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
-  position: relative;
-  z-index: 1;
+/* ==================== HEADER & NAVIGATION ==================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #051635;
+  z-index: 1000;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.main-subtitle {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.5rem;
-  color: #bfdbfe;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  font-weight: 300;
-  position: relative;
-  z-index: 1;
-}
-
-.essentials-tag {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.1rem;
-  color: #fbbf24;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  font-weight: 700;
-  margin-top: 20px;
-  position: relative;
-  z-index: 1;
-}
-
-/* ==================== NAVIGATION ==================== */
-.navigation-grid {
+.nav-container {
   max-width: 1400px;
-  margin: -60px auto 0;
-  padding: 0 40px;
-  position: relative;
-  z-index: 10;
-}
-
-.nav-cards {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-}
-
-.nav-card {
-  background: #fff;
-  border: none;
-  padding: 25px 15px;
-  cursor: pointer;
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #1e3a8a;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
-}
-
-.nav-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
-  transition: left 0.3s ease;
-  z-index: -1;
-}
-
-.nav-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(37, 99, 235, 0.3);
-  color: #fff;
-}
-
-.nav-card:hover::before {
-  left: 0;
-}
-
-.nav-card.active {
-  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
-  color: #fff;
-  transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(37, 99, 235, 0.4);
-}
-
-.nav-number {
-  display: block;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.5rem;
-  margin-bottom: 5px;
-  opacity: 0.6;
-}
-
-/* ==================== MAIN CONTENT ==================== */
-.main-content {
-  max-width: 1400px;
-  margin: 80px auto 0;
-  padding: 0 40px 100px;
-}
-
-/* ==================== ESSENTIAL ITEM (GQ STYLE) ==================== */
-.essential-item {
-  margin-bottom: 150px;
-  opacity: 0;
-  animation: slideInEssential 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  position: relative;
-}
-
-@keyframes slideInEssential {
-  from {
-    opacity: 0;
-    transform: translateY(60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.essential-item:nth-child(1) { animation-delay: 0.1s; }
-.essential-item:nth-child(2) { animation-delay: 0.2s; }
-.essential-item:nth-child(3) { animation-delay: 0.3s; }
-
-/* Background blocks with color rotation */
-.essential-item:nth-child(3n+1) { 
-  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
-  padding: 100px 80px;
-  color: #fff;
-  clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%);
-  min-height: 800px;
-}
-
-.essential-item:nth-child(3n+2) { 
-  background: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%);
-  padding: 100px 80px;
-  color: #1e3a8a;
-  clip-path: polygon(0 0%, 100% 5%, 100% 100%, 0% 95%);
-  min-height: 800px;
-}
-
-.essential-item:nth-child(3n) { 
-  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
-  padding: 100px 80px;
-  color: #fff;
-  clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0% 100%);
-  min-height: 800px;
-}
-
-/* Big Number Indicator */
-.item-number {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 12rem;
-  font-weight: 400;
-  position: absolute;
-  top: -40px;
-  right: 40px;
-  opacity: 0.08;
-  line-height: 1;
-  pointer-events: none;
-}
-
-.essential-item:nth-child(3n+1) .item-number {
-  color: #fff;
-}
-
-.essential-item:nth-child(3n+2) .item-number {
-  color: #1e3a8a;
-}
-
-.essential-item:nth-child(3n) .item-number {
-  color: #1e3a8a;
-}
-
-/* Item Header */
-.item-header {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  margin-bottom: 50px;
-  position: relative;
-  z-index: 1;
-}
-
-.item-label {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 3rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  opacity: 0.9;
-}
-
-.item-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 4.5rem;
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  flex: 1;
-}
-
-/* Diamond divider */
-.item-divider {
-  width: 15px;
-  height: 15px;
-  background: currentColor;
-  transform: rotate(45deg);
-  opacity: 0.6;
-}
-
-/* Item Content Grid */
-.item-content {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 60px;
-  align-items: start;
-  position: relative;
-  z-index: 1;
-}
-
-.item-text {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.9;
-  font-weight: 400;
-}
-
-.essential-item:nth-child(3n+1) .item-text {
-  color: rgba(255, 255, 255, 0.95);
-}
-
-.essential-item:nth-child(3n+2) .item-text {
-  color: #1e3a8a;
-}
-
-.essential-item:nth-child(3n) .item-text {
-  color: #374151;
-}
-
-/* Sub-story within item */
-.sub-story {
-  margin-top: 60px;
-  padding-top: 40px;
-  border-top: 2px solid currentColor;
-  opacity: 0.9;
-}
-
-.sub-story h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.sub-story p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-}
-
-/* ==================== POLAROID SCRAPBOOK FRAMES ==================== */
-.polaroid-stack {
-  position: relative;
-  height: 600px;
-  width: 100%;
-}
-
-.polaroid {
-  background: #fff;
-  padding: 15px 15px 50px;
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.3),
-    0 8px 20px rgba(0, 0, 0, 0.15);
-  position: absolute;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  width: 380px;
-}
-
-/* First polaroid */
-.polaroid:nth-child(1) {
-  transform: rotate(-5deg);
-  top: 0;
-  left: 0;
-  z-index: 3;
-}
-
-/* Second polaroid (if exists) */
-.polaroid:nth-child(2) {
-  transform: rotate(8deg);
-  top: 30px;
-  right: -20px;
-  z-index: 2;
-}
-
-.polaroid:hover {
-  transform: rotate(0deg) scale(1.05) translateY(-10px);
-  box-shadow: 
-    0 30px 80px rgba(0, 0, 0, 0.4),
-    0 15px 30px rgba(0, 0, 0, 0.2);
-  z-index: 10;
-}
-
-/* Tape effect */
-.polaroid::before {
-  content: '';
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-3deg);
-  width: 80px;
-  height: 25px;
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid rgba(200, 200, 200, 0.4);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.polaroid-image {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Inter', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
-  background-size: cover;
-  background-position: center;
-}
-
-.polaroid-caption {
-  margin-top: 15px;
-  font-family: 'Brush Script MT', cursive;
-  font-size: 1.4rem;
-  color: #374151;
-  text-align: center;
-}
-
-/* Single polaroid (centered) */
-.polaroid-single {
-  max-width: 450px;
   margin: 0 auto;
-  transform: rotate(-3deg);
+  padding: 32px 48px;
 }
 
-/* ==================== MOVIE SECTION GRID ==================== */
-.movies-intro {
-  max-width: 800px;
-  margin: 0 auto 80px;
-  text-align: center;
-  background: #fff;
-  padding: 50px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
-  border-left: 6px solid #2563eb;
-}
-
-.movies-intro p {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.25rem;
-  line-height: 1.9;
-  color: #374151;
-}
-
-.movie-collection {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 35px;
-  margin-top: 60px;
-}
-
-.movie-poster-card {
-  background: #fff;
-  padding: 12px 12px 45px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-  transform: rotate(-2deg);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  position: relative;
-}
-
-.movie-poster-card:nth-child(even) {
-  transform: rotate(2deg);
-}
-
-.movie-poster-card:hover {
-  transform: rotate(0deg) translateY(-15px) scale(1.05);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
-  z-index: 10;
-}
-
-/* Pin/thumbtack effect */
-.movie-poster-card::before {
-  content: '📌';
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.5rem;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-}
-
-.movie-poster {
-  width: 100%;
-  height: 280px;
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 10px;
-}
-
-.movie-name {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #1e3a8a;
-  text-align: center;
-  line-height: 1.3;
-}
-
-.movie-year {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
-  color: #6b7280;
-  text-align: center;
-  margin-top: 3px;
-}
-
-/* Movie clips section */
-.movie-clips {
-  margin-top: 80px;
-}
-
-.clips-title {
+.site-title {
   font-family: 'Playfair Display', serif;
-  font-size: 3rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  color: #1e3a8a;
-  text-align: center;
-  margin-bottom: 50px;
+  color: #FFFFFF;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
 }
 
-.clips-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 50px;
-}
-
-.clip-item {
-  background: #fff;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-  overflow: hidden;
-  border-left: 5px solid #2563eb;
-  transition: all 0.3s ease;
-}
-
-.clip-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
-}
-
-.clip-placeholder {
-  width: 100%;
-  height: 250px;
+.nav-links {
   display: flex;
+  gap: 40px;
+  list-style: none;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  color: #fff;
 }
 
-.clip-info {
-  padding: 25px;
+.nav-link {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #9A9A9A;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  font-weight: 400;
+  border: none;
+  background: none;
+  padding: 0;
 }
 
-.clip-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.6rem;
+.nav-link:hover {
+  color: #FFFFFF;
+}
+
+.nav-link.active {
+  color: #FFFFFF;
   font-weight: 700;
-  color: #1e3a8a;
-  margin-bottom: 10px;
 }
 
-.clip-description {
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #4b5563;
-}
-
-/* ==================== HOME SECTION ==================== */
-.home-intro {
-  max-width: 900px;
-  margin: 80px auto;
+/* ==================== INTRO SECTION ==================== */
+.intro-section {
+  margin-top: 160px;
+  padding: 120px 48px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
-  position: relative;
 }
 
-.intro-card {
-  background: #fff;
-  padding: 70px 60px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
-  clip-path: polygon(2% 0%, 98% 0%, 100% 100%, 0% 100%);
-  position: relative;
+.intro-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #9A9A9A;
+  margin-bottom: 24px;
 }
 
-/* Diamond accent */
-.intro-card::before {
-  content: '';
-  position: absolute;
-  top: -25px;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+.intro-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 48px;
+  color: #111111;
+  letter-spacing: -1px;
 }
 
 .intro-text {
   font-family: 'Inter', sans-serif;
-  font-size: 1.4rem;
-  line-height: 2;
-  color: #374151;
-  margin-bottom: 30px;
-  font-weight: 400;
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: #333333;
+  max-width: 650px;
+  margin: 0 auto 40px;
 }
 
-/* ==================== RESPONSIVE DESIGN ==================== */
-@media (max-width: 1200px) {
-  .nav-cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  .item-content {
-    grid-template-columns: 1fr;
-    gap: 50px;
-  }
-  
-  .polaroid-stack {
-    height: auto;
-  }
-  
-  .polaroid:nth-child(2) {
-    position: relative;
-    top: 0;
-    right: 0;
-    margin-top: 30px;
-  }
+.intro-divider {
+  width: 100px;
+  height: 1px;
+  background: #E5E5E5;
+  margin: 60px auto;
 }
 
-@media (max-width: 768px) {
-  .main-title {
-    font-size: 4rem;
-  }
-  
-  .main-subtitle {
-    font-size: 1rem;
-  }
-  
-  .nav-cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
-  
-  .nav-card {
-    padding: 20px 12px;
-    font-size: 0.85rem;
-  }
-  
-  .nav-number {
-    font-size: 2rem;
-  }
-  
-  .item-title {
-    font-size: 3rem;
-  }
-  
-  .item-number {
-    font-size: 8rem;
-    top: -20px;
-    right: 20px;
-  }
-  
-  .essential-item:nth-child(3n+1),
-  .essential-item:nth-child(3n+2),
-  .essential-item:nth-child(3n) {
-    padding: 50px 30px;
-  }
-  
-  .item-text {
-    font-size: 1.05rem;
-  }
-  
-  .movie-collection {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 25px;
-  }
-  
-  .movie-poster {
-    height: 200px;
-  }
-  
-  .clips-grid {
-    grid-template-columns: 1fr;
-  }
+/* ==================== ESSENTIAL SECTIONS ==================== */
+.essential-section {
+  padding: 100px 48px;
+  max-width: 1400px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-/* ==================== DECORATIVE ELEMENTS ==================== */
-.diamond-accent {
-  width: 20px;
-  height: 20px;
-  background: currentColor;
-  transform: rotate(45deg);
-  display: inline-block;
-  margin: 0 10px;
-  opacity: 0.4;
+.essential-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Scrapbook paper texture */
-.paper-texture {
+.section-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #9A9A9A;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 32px;
+  color: #111111;
+  letter-spacing: -1px;
+}
+
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: #E5E5E5;
+  margin-bottom: 48px;
+}
+
+.section-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: #333333;
+  max-width: 650px;
+}
+
+.section-text p {
+  margin-bottom: 24px;
+}
+
+.section-text h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-top: 48px;
+  margin-bottom: 20px;
+  color: #111111;
+}
+
+/* ==================== LAYOUT PATTERNS ==================== */
+
+/* Layout 1: Text Left, Images Right (Two-column grid) */
+.layout-1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* Layout 2: Full-width hero image with centered text below */
+.layout-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.layout-2 .hero-image {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 64px;
+}
+
+.layout-2 .section-text {
+  text-align: center;
+}
+
+/* Layout 3: Three-column staggered grid with text in left column */
+.layout-3 {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+}
+
+.layout-3 .image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+/* Layout 4: 60% image / 40% text split */
+.layout-4 {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Layout 5: Mirror of Layout 1 (Text Right, Images Left) */
+.layout-5 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.layout-5 .section-text {
+  order: 2;
+}
+
+.layout-5 .image-container {
+  order: 1;
+}
+
+/* ==================== IMAGE STYLING ==================== */
+.image-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.editorial-image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid #E5E5E5;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.editorial-image:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.image-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.image-caption {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: #9A9A9A;
+  margin-top: 12px;
+  letter-spacing: 0.05em;
+}
+
+/* Video embed styling */
+.video-container {
   position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  margin-bottom: 24px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #E5E5E5;
 }
 
-.paper-texture::after {
-  content: '';
+.video-container iframe,
+.video-container video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04' /%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 1;
+  object-fit: cover;
+}
+
+/* ==================== MOVIE POSTERS SECTION ==================== */
+.movie-posters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 24px;
+  margin-top: 64px;
+}
+
+.movie-poster {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #E5E5E5;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-poster:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+  background: #FFFFFF;
+  padding: 80px 48px;
+  text-align: center;
+  border-top: 1px solid #E5E5E5;
+  margin-top: 120px;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #111111;
+}
+
+.footer-year {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #9A9A9A;
+  margin-bottom: 32px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  list-style: none;
+}
+
+.footer-link {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #333333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #111111;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 1024px) {
+  .layout-1,
+  .layout-3,
+  .layout-4,
+  .layout-5 {
+    grid-template-columns: 1fr;
+  }
+
+  .layout-5 .section-text {
+    order: 1;
+  }
+
+  .layout-5 .image-container {
+    order: 2;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .intro-title {
+    font-size: 2.8rem;
+  }
+
+  .nav-links {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 24px 32px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .nav-link {
+    font-size: 0.65rem;
+  }
+
+  .intro-section {
+    padding: 80px 32px;
+    margin-top: 140px;
+  }
+
+  .intro-title {
+    font-size: 2.2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .essential-section {
+    padding: 60px 32px;
+  }
+
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .image-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .movie-posters-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 16px;
+  }
+}
+
+/* ==================== UTILITY CLASSES ==================== */
+.spacer {
+  height: 80px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-small {
+  margin-bottom: 24px;
+}
+
+.mb-medium {
+  margin-bottom: 48px;
+}
+
+.mb-large {
+  margin-bottom: 64px;
 }
