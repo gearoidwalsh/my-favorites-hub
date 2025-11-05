@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 
 // Movie data with posters (removed "The Thing")
@@ -41,6 +41,46 @@ const SECTIONS = [
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSection, setActiveSection] = useState('sports');
+  const diamondsRef = useRef(null);
+
+  // Hero entrance animation with diamond particles
+  useEffect(() => {
+    const hero = document.getElementById('hero');
+    const holder = diamondsRef.current;
+    
+    if (!hero || !holder) return;
+
+    const run = () => hero.classList.add('animate');
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(e => {
+        if (e[0].isIntersecting) {
+          run();
+          io.disconnect();
+        }
+      }, { rootMargin: '0px 0px -20% 0px' });
+      io.observe(hero);
+    } else {
+      run();
+    }
+
+    // Generate diamond particles
+    const count = 14;
+    for (let i = 0; i < count; i++) {
+      const el = document.createElement('span');
+      el.className = 'diamond';
+      el.style.setProperty('--x', Math.random() * 100 + 'vw');
+      el.style.setProperty('--yStart', (-10 - Math.random() * 20) + 'vh');
+      el.style.setProperty('--yEnd', (50 + Math.random() * 200) + 'px');
+      el.style.setProperty('--s', (6 + Math.random() * 10) + 'px');
+      el.style.setProperty('--delay', (120 + Math.random() * 900) + 'ms');
+      el.style.setProperty('--dur', (900 + Math.random() * 900) + 'ms');
+      holder.appendChild(el);
+      el.addEventListener('animationend', () => {
+        el.style.opacity = '.18';
+      });
+    }
+  }, []);
 
   // Scroll progress bar
   useEffect(() => {
@@ -113,13 +153,17 @@ function App() {
         </nav>
       </header>
 
-      {/* You-Centered Navy Hero */}
-      <section className="navy-hero">
-        <div className="hero-content">
+      {/* Animated Hero Section */}
+      <section className="hero" id="hero">
+        <div className="hero-inner">
           <h1 className="hero-title">10 Things Gearoid Walsh Can't Live Without</h1>
-          <div className="hero-diamond-divider">◇</div>
-          <p className="hero-subtitle">A Personal Collection of Essential Moments</p>
-          <img src="/photos/Hero.png" alt="Gearoid Walsh" className="hero-portrait" loading="eager" />
+          <div className="hero-subtitle">
+            <span className="diamond-sep">◇</span>
+            A PERSONAL COLLECTION OF ESSENTIAL MOMENTS
+            <span className="diamond-sep">◇</span>
+          </div>
+          <img className="hero-portrait" src="/photos/Hero.png" alt="Gearoid Walsh portrait" />
+          <div className="hero-diamonds" ref={diamondsRef}></div>
         </div>
       </section>
 
