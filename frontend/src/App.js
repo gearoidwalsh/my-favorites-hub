@@ -113,18 +113,13 @@ function App() {
         </nav>
       </header>
 
-      {/* Navy Hero Section with Three-Pillar Layout */}
+      {/* You-Centered Navy Hero */}
       <section className="navy-hero">
         <div className="hero-content">
           <h1 className="hero-title">10 Things Gearoid Walsh Can't Live Without</h1>
           <div className="hero-diamond-divider">◇</div>
           <p className="hero-subtitle">A Personal Collection of Essential Moments</p>
-          
-          <div className="hero-triptych">
-            <img src="/photos/Diamond.png" alt="Diamond" className="hero-pillar" loading="eager" />
-            <img src="/photos/Hero.png" alt="Gearoid Walsh" className="hero-pillar" loading="eager" />
-            <img src="/photos/Diamond.png" alt="Diamond" className="hero-pillar" loading="eager" />
-          </div>
+          <img src="/photos/Hero.png" alt="Gearoid Walsh" className="hero-portrait" loading="eager" />
         </div>
       </section>
 
@@ -149,7 +144,12 @@ function App() {
           
           <div className="image-stack">
             <div className="video-frame">
-              <video controls>
+              <video 
+                controls 
+                preload="metadata"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              >
+                <source src="/photos/GameWinner.mov" type="video/mp4" />
                 <source src="/photos/GameWinner.mov" type="video/quicktime" />
                 Your browser does not support the video tag.
               </video>
