@@ -485,8 +485,8 @@ function DogsSection() {
           </div>
         </div>
         
-        <div className="polaroid-stack" style={{ height: '700px' }}>
-          <div className="polaroid" style={{ top: '0', left: '0', width: '340px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px', marginTop: '40px' }}>
+          <div className="polaroid" style={{ position: 'relative', transform: 'rotate(-3deg)' }}>
             <div className="polaroid-image" style={{
               backgroundImage: 'url(/photos/Mamo.png)',
               backgroundSize: 'cover',
@@ -495,7 +495,7 @@ function DogsSection() {
             </div>
             <div className="polaroid-caption">Neansai 🐾</div>
           </div>
-          <div className="polaroid" style={{ top: '80px', right: '0', width: '320px', transform: 'rotate(5deg)' }}>
+          <div className="polaroid" style={{ position: 'relative', transform: 'rotate(2deg)' }}>
             <div className="polaroid-image" style={{
               backgroundImage: 'url(/photos/Lucy.png)',
               backgroundSize: 'cover',
@@ -504,7 +504,7 @@ function DogsSection() {
             </div>
             <div className="polaroid-caption">Lucy 🐕</div>
           </div>
-          <div className="polaroid" style={{ top: '380px', left: '20px', width: '300px', transform: 'rotate(-4deg)' }}>
+          <div className="polaroid" style={{ position: 'relative', transform: 'rotate(-2deg)' }}>
             <div className="polaroid-image" style={{
               backgroundImage: 'url(/photos/Lucy%20%232.png)',
               backgroundSize: 'cover',
@@ -513,7 +513,16 @@ function DogsSection() {
             </div>
             <div className="polaroid-caption">Lucy adventures 🏃‍♀️</div>
           </div>
-          <div className="polaroid" style={{ top: '420px', right: '30px', width: '300px', transform: 'rotate(6deg)' }}>
+          <div className="polaroid" style={{ position: 'relative', transform: 'rotate(3deg)' }}>
+            <div className="polaroid-image" style={{
+              backgroundImage: 'url(/photos/Lucy%20%233.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}>
+            </div>
+            <div className="polaroid-caption">More Lucy! 😊</div>
+          </div>
+          <div className="polaroid" style={{ position: 'relative', transform: 'rotate(-3deg)' }}>
             <div className="polaroid-image" style={{
               backgroundImage: 'url(/photos/Lucy%20Smile.png)',
               backgroundSize: 'cover',
@@ -521,6 +530,15 @@ function DogsSection() {
             }}>
             </div>
             <div className="polaroid-caption">That smile! 🌟</div>
+          </div>
+          <div className="polaroid" style={{ position: 'relative', transform: 'rotate(2deg)' }}>
+            <div className="polaroid-image" style={{
+              backgroundImage: 'url(/photos/Lucy%20walk.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}>
+            </div>
+            <div className="polaroid-caption">Beach walks 🏖️</div>
           </div>
         </div>
       </div>

@@ -184,23 +184,26 @@ html {
 /* Background blocks with color rotation */
 .essential-item:nth-child(3n+1) { 
   background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
-  padding: 80px 60px;
+  padding: 100px 80px;
   color: #fff;
   clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%);
+  min-height: 800px;
 }
 
 .essential-item:nth-child(3n+2) { 
   background: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%);
-  padding: 80px 60px;
+  padding: 100px 80px;
   color: #1e3a8a;
   clip-path: polygon(0 0%, 100% 5%, 100% 100%, 0% 95%);
+  min-height: 800px;
 }
 
 .essential-item:nth-child(3n) { 
   background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
-  padding: 80px 60px;
+  padding: 100px 80px;
   color: #fff;
   clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0% 100%);
+  min-height: 800px;
 }
 
 /* Big Number Indicator */
@@ -317,7 +320,8 @@ html {
 /* ==================== POLAROID SCRAPBOOK FRAMES ==================== */
 .polaroid-stack {
   position: relative;
-  height: 500px;
+  height: 600px;
+  width: 100%;
 }
 
 .polaroid {
@@ -329,6 +333,7 @@ html {
   position: absolute;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  width: 380px;
 }
 
 /* First polaroid */
