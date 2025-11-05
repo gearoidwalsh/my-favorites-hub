@@ -7,14 +7,11 @@ const MOVIES = [
   { title: 'Whiplash', year: 2014, poster: 'https://m.media-amazon.com/images/M/MV5BOTA5NDZlZGUtMjAxOS00YTRkLTkwYmMtYWQ0NWEwZDZiNjEzXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg' },
   { title: 'Spirited Away', year: 2001, poster: 'https://m.media-amazon.com/images/M/MV5BMjlmZmI5MDctNDE2YS00YWE0LWE5ZWItZDBhYWQ0NTcxNWRhXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg' },
   { title: 'The Grand Budapest Hotel', year: 2014, poster: 'https://m.media-amazon.com/images/M/MV5BMzM5NjUxOTEyMl5BMl5BanBnXkFtZTgwNjEyMDM0MDE@._V1_SX300.jpg' },
-  { title: 'Fantastic Mr. Fox', year: 2009, poster: 'https://m.media-amazon.com/images/M/MV5BMTYzNDc2MDc0N15BMl5BanBnXkFtZTcwMzQ2MTc0Mg@@._V1_SX300.jpg' },
   { title: 'The Shawshank Redemption', year: 1994, poster: 'https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_SX300.jpg' },
   { title: 'Blade Runner 2049', year: 2017, poster: 'https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_SX300.jpg' },
-  { title: 'Aftersun', year: 2022, poster: 'https://m.media-amazon.com/images/M/MV5BZmZmODVmNzktMDZkYy00MzMzLTgxMDMtNWQ4NDA1ZGRmYzE0XkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_SX300.jpg' },
   { title: 'No Country for Old Men', year: 2007, poster: 'https://m.media-amazon.com/images/M/MV5BMjA5Njk3MjM4OV5BMl5BanBnXkFtZTcwMTc5MTE1MQ@@._V1_SX300.jpg' },
   { title: 'Catch Me If You Can', year: 2002, poster: 'https://m.media-amazon.com/images/M/MV5BMTY5MzYzNjc5NV5BMl5BanBnXkFtZTYwNTUyNTc2._V1_SX300.jpg' },
   { title: 'Moonlight', year: 2016, poster: 'https://m.media-amazon.com/images/M/MV5BNzQxNTIyODAxMV5BMl5BanBnXkFtZTgwNzQyMDA3OTE@._V1_SX300.jpg' },
-  { title: 'Babylon', year: 2022, poster: 'https://m.media-amazon.com/images/M/MV5BNjI0NDYwMzgtN2Q2Yy00ZGM4LTk3ZWMtNzE1ZmJkNmQzMGQ2XkEyXkFqcGdeQXVyMTAyMjQ3NzQ1._V1_SX300.jpg' },
   { title: 'The Godfather', year: 1972, poster: 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg' },
   { title: 'The Godfather Part II', year: 1974, poster: 'https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg' },
   { title: 'Manchester by the Sea', year: 2016, poster: 'https://m.media-amazon.com/images/M/MV5BMTYxMjk0NDg4Ml5BMl5BanBnXkFtZTgwODcyNjA5OTE@._V1_SX300.jpg' },
@@ -26,7 +23,6 @@ const MOVIES = [
   { title: 'Coco', year: 2017, poster: 'https://m.media-amazon.com/images/M/MV5BYjQ5NjM0Y2YtNjZkNC00ZDhkLWJjMWItN2QyNzFkMDE3ZjAxXkEyXkFqcGdeQXVyODIxMzk5NjA@._V1_SX300.jpg' },
   { title: 'The Thing', year: 1982, poster: 'https://m.media-amazon.com/images/M/MV5BNGViZWZmM2EtNGYzZi00ZDAyLTk3ODMtNzIyZTBjN2Y1NmM1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg' },
   { title: 'In the Mood for Love', year: 2000, poster: 'https://m.media-amazon.com/images/M/MV5BYWVjNjMwZTgtMGYyYy00NmVhLWE1NDItMzFhMmJkYTNjYWIwXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg' },
-  { title: 'Training Day', year: 2001, poster: 'https://m.media-amazon.com/images/M/MV5BOTc4NDQzODkxM15BMl5BanBnXkFtZTcwNzEzNjUxNA@@._V1_SX300.jpg' },
   { title: 'Arrival', year: 2016, poster: 'https://m.media-amazon.com/images/M/MV5BMTExMzU0ODcxNDheQTJeQWpwZ15BbWU4MDE1OTI4MzAy._V1_SX300.jpg' },
 ];
 
@@ -304,8 +300,8 @@ function FoodSection() {
           </div>
         </div>
         
-        <div className="polaroid-stack" style={{ height: '600px' }}>
-          <div className="polaroid" style={{ top: '0', left: '0' }}>
+        <div className="polaroid-stack" style={{ height: '750px' }}>
+          <div className="polaroid" style={{ top: '0', left: '0', width: '340px' }}>
             <div className="polaroid-image" style={{
               backgroundImage: 'url(/photos/Cooking.png)',
               backgroundSize: 'cover',
@@ -314,7 +310,7 @@ function FoodSection() {
             </div>
             <div className="polaroid-caption">Oxtail magic 🔥</div>
           </div>
-          <div className="polaroid" style={{ top: '40px', right: '-40px' }}>
+          <div className="polaroid" style={{ top: '100px', right: '0', width: '340px', transform: 'rotate(5deg)' }}>
             <div className="polaroid-image" style={{
               backgroundImage: 'url(/photos/Mezzo.png)',
               backgroundSize: 'cover',
@@ -323,7 +319,7 @@ function FoodSection() {
             </div>
             <div className="polaroid-caption">BLTA perfection 🥪</div>
           </div>
-          <div className="polaroid" style={{ top: '180px', left: '30px', transform: 'rotate(4deg)' }}>
+          <div className="polaroid" style={{ top: '400px', left: '30px', width: '320px', transform: 'rotate(-4deg)' }}>
             <div className="polaroid-image" style={{
               backgroundImage: 'url(/photos/Donut.png)',
               backgroundSize: 'cover',
@@ -332,7 +328,7 @@ function FoodSection() {
             </div>
             <div className="polaroid-caption">Sweet treats 🍩</div>
           </div>
-          <div className="polaroid" style={{ top: '220px', right: '10px', transform: 'rotate(-4deg)', width: '300px' }}>
+          <div className="polaroid" style={{ top: '450px', right: '20px', width: '300px', transform: 'rotate(6deg)' }}>
             <div className="polaroid-image" style={{
               backgroundImage: 'url(/photos/Pizza.png)',
               backgroundSize: 'cover',
@@ -340,15 +336,6 @@ function FoodSection() {
             }}>
             </div>
             <div className="polaroid-caption">San Jose slice 🍕</div>
-          </div>
-          <div className="polaroid" style={{ top: '420px', left: '60px', transform: 'rotate(6deg)', width: '300px' }}>
-            <div className="polaroid-image" style={{
-              backgroundImage: 'url(/photos/MiddleEastern.png)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
-            }}>
-            </div>
-            <div className="polaroid-caption">Middle Eastern feast 🥙</div>
           </div>
         </div>
       </div>
@@ -498,8 +485,17 @@ function DogsSection() {
           </div>
         </div>
         
-        <div className="polaroid-stack" style={{ height: '900px' }}>
-          <div className="polaroid" style={{ top: '0', left: '0', width: '300px' }}>
+        <div className="polaroid-stack" style={{ height: '700px' }}>
+          <div className="polaroid" style={{ top: '0', left: '0', width: '340px' }}>
+            <div className="polaroid-image" style={{
+              backgroundImage: 'url(/photos/Mamo.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}>
+            </div>
+            <div className="polaroid-caption">Neansai 🐾</div>
+          </div>
+          <div className="polaroid" style={{ top: '80px', right: '0', width: '320px', transform: 'rotate(5deg)' }}>
             <div className="polaroid-image" style={{
               backgroundImage: 'url(/photos/Lucy.png)',
               backgroundSize: 'cover',
@@ -508,7 +504,7 @@ function DogsSection() {
             </div>
             <div className="polaroid-caption">Lucy 🐕</div>
           </div>
-          <div className="polaroid" style={{ top: '60px', right: '20px', width: '300px', transform: 'rotate(6deg)' }}>
+          <div className="polaroid" style={{ top: '380px', left: '20px', width: '300px', transform: 'rotate(-4deg)' }}>
             <div className="polaroid-image" style={{
               backgroundImage: 'url(/photos/Lucy%20%232.png)',
               backgroundSize: 'cover',
@@ -517,16 +513,7 @@ function DogsSection() {
             </div>
             <div className="polaroid-caption">Lucy adventures 🏃‍♀️</div>
           </div>
-          <div className="polaroid" style={{ top: '300px', left: '20px', width: '300px', transform: 'rotate(-5deg)' }}>
-            <div className="polaroid-image" style={{
-              backgroundImage: 'url(/photos/Lucy%20%233.png)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
-            }}>
-            </div>
-            <div className="polaroid-caption">Always smiling 😊</div>
-          </div>
-          <div className="polaroid" style={{ top: '340px', right: '-10px', width: '300px', transform: 'rotate(7deg)' }}>
+          <div className="polaroid" style={{ top: '420px', right: '30px', width: '300px', transform: 'rotate(6deg)' }}>
             <div className="polaroid-image" style={{
               backgroundImage: 'url(/photos/Lucy%20Smile.png)',
               backgroundSize: 'cover',
@@ -534,24 +521,6 @@ function DogsSection() {
             }}>
             </div>
             <div className="polaroid-caption">That smile! 🌟</div>
-          </div>
-          <div className="polaroid" style={{ top: '580px', left: '60px', width: '300px', transform: 'rotate(-4deg)' }}>
-            <div className="polaroid-image" style={{
-              backgroundImage: 'url(/photos/Lucy%20walk.png)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
-            }}>
-            </div>
-            <div className="polaroid-caption">Beach walks 🏖️</div>
-          </div>
-          <div className="polaroid" style={{ top: '120px', left: '50%', transform: 'translateX(-50%) scale(2) rotate(-3deg)', width: '380px', zIndex: 20 }}>
-            <div className="polaroid-image" style={{
-              backgroundImage: 'url(/photos/Mamo.png)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
-            }}>
-            </div>
-            <div className="polaroid-caption" style={{ fontSize: '1.8rem', fontWeight: 'bold' }}>Neansai 🐾</div>
           </div>
         </div>
       </div>
@@ -782,8 +751,8 @@ function SelfGrowthSection() {
         </div>
         
         <div className="polaroid-stack" style={{ height: '850px' }}>
-          <div className="polaroid" style={{ top: '0', left: '0', width: '320px' }}>
-            <div className="polaroid-image" style={{ height: '320px' }}>
+          <div className="polaroid" style={{ top: '0', left: '0', width: '360px' }}>
+            <div className="polaroid-image">
               <iframe
                 width="100%"
                 height="100%"
@@ -797,10 +766,9 @@ function SelfGrowthSection() {
             <div className="polaroid-caption">Enneagram 📖</div>
           </div>
           
-          {/* Idol Photos in Scrapbook Style */}
-          <div className="polaroid" style={{ top: '80px', right: '10px', width: '200px', transform: 'rotate(6deg)' }}>
+          {/* Idol Photos - Better Spaced */}
+          <div className="polaroid" style={{ top: '120px', right: '0', width: '280px', transform: 'rotate(4deg)' }}>
             <div className="polaroid-image" style={{
-              height: '250px',
               backgroundImage: 'url(/photos/Virgil.png)',
               backgroundSize: 'cover',
               backgroundPosition: 'center'
@@ -809,9 +777,8 @@ function SelfGrowthSection() {
             <div className="polaroid-caption">Virgil 🛡️</div>
           </div>
           
-          <div className="polaroid" style={{ top: '350px', left: '30px', width: '200px', transform: 'rotate(-5deg)' }}>
+          <div className="polaroid" style={{ top: '420px', left: '20px', width: '280px', transform: 'rotate(-4deg)' }}>
             <div className="polaroid-image" style={{
-              height: '250px',
               backgroundImage: 'url(/photos/Curry.png)',
               backgroundSize: 'cover',
               backgroundPosition: 'center'
@@ -820,26 +787,14 @@ function SelfGrowthSection() {
             <div className="polaroid-caption">Steph 🏀</div>
           </div>
           
-          <div className="polaroid" style={{ top: '400px', right: '-20px', width: '200px', transform: 'rotate(8deg)' }}>
+          <div className="polaroid" style={{ top: '460px', right: '10px', width: '280px', transform: 'rotate(5deg)' }}>
             <div className="polaroid-image" style={{
-              height: '250px',
               backgroundImage: 'url(/photos/Erwin.png)',
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}>
             </div>
             <div className="polaroid-caption">Erwin ⚔️</div>
-          </div>
-          
-          <div className="polaroid" style={{ top: '650px', left: '100px', width: '200px', transform: 'rotate(-4deg)' }}>
-            <div className="polaroid-image" style={{
-              height: '250px',
-              backgroundImage: 'url(/photos/Klopp.png)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
-            }}>
-            </div>
-            <div className="polaroid-caption">Klopp ⚽</div>
           </div>
         </div>
       </div>
