@@ -377,16 +377,37 @@ function App() {
           </div>
         </div>
         
-        <h3 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.8rem', marginTop: '80px', marginBottom: '32px' }}>All-Time Favorites</h3>
+        <h3 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.8rem', marginTop: '80px', marginBottom: '32px', textAlign: 'center' }}>All-Time Favorites</h3>
         
-        <div className="movie-posters-grid">
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', 
+          gap: '20px', 
+          marginTop: '48px' 
+        }}>
           {MOVIES.map((movie, index) => (
             <img
               key={index}
               src={movie.poster}
               alt={movie.title}
-              className="movie-poster"
-              loading="lazy"
+              style={{
+                width: '100%',
+                aspectRatio: '2 / 3',
+                objectFit: 'cover',
+                border: '1px solid #E5E5E5',
+                borderRadius: '4px',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                cursor: 'pointer'
+              }}
+              loading="eager"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-4px)';
+                e.currentTarget.style.boxShadow = '0 12px 32px rgba(0, 0, 0, 0.12)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
             />
           ))}
         </div>
@@ -456,37 +477,81 @@ function App() {
 
         <h3 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.8rem', marginBottom: '32px' }}>My Idols</h3>
         
-        <div className="idols-grid">
-          <div className="idol-item">
-            <img src="/photos/Virgil.png" alt="Virgil Van Dijk" className="idol-image" loading="lazy" />
-            <p className="idol-caption">
-              <strong>Virgil Van Dijk</strong>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '32px', marginTop: '48px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <img 
+              src="/photos/Virgil.png" 
+              alt="Virgil Van Dijk" 
+              style={{ 
+                width: '100%', 
+                aspectRatio: '4 / 5', 
+                objectFit: 'cover', 
+                border: '1px solid #E5E5E5',
+                borderRadius: '4px'
+              }} 
+              loading="eager"
+            />
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.9rem', lineHeight: '1.6', color: '#727272' }}>
+              <strong style={{ display: 'block', fontWeight: 600, marginBottom: '8px', color: '#111111', fontSize: '1rem' }}>Virgil Van Dijk</strong>
               What draws me to Virgil is his calm, composed presence on and off the field. He leads not through loudness, but through consistency and quiet confidence. He elevates everyone around him simply by being steady under pressure—a reminder that true leadership doesn't need to shout.
-            </p>
+            </div>
           </div>
           
-          <div className="idol-item">
-            <img src="/photos/Curry.png" alt="Stephen Curry" className="idol-image" loading="lazy" />
-            <p className="idol-caption">
-              <strong>Stephen Curry</strong>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <img 
+              src="/photos/Curry.png" 
+              alt="Stephen Curry" 
+              style={{ 
+                width: '100%', 
+                aspectRatio: '4 / 5', 
+                objectFit: 'cover', 
+                border: '1px solid #E5E5E5',
+                borderRadius: '4px'
+              }} 
+              loading="eager"
+            />
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.9rem', lineHeight: '1.6', color: '#727272' }}>
+              <strong style={{ display: 'block', fontWeight: 600, marginBottom: '8px', color: '#111111', fontSize: '1rem' }}>Stephen Curry</strong>
               Steph revolutionized basketball not just with his skills, but with his humility and joy. He plays with a childlike passion that's infectious, yet carries himself with grace and integrity. He's proof that you can be elite and still stay grounded, uplift others, and find genuine happiness in what you do.
-            </p>
+            </div>
           </div>
           
-          <div className="idol-item">
-            <img src="/photos/Erwin.png" alt="Erwin" className="idol-image" loading="lazy" />
-            <p className="idol-caption">
-              <strong>Erwin (Attack on Titan)</strong>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <img 
+              src="/photos/Erwin.png" 
+              alt="Erwin" 
+              style={{ 
+                width: '100%', 
+                aspectRatio: '4 / 5', 
+                objectFit: 'cover', 
+                border: '1px solid #E5E5E5',
+                borderRadius: '4px'
+              }} 
+              loading="eager"
+            />
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.9rem', lineHeight: '1.6', color: '#727272' }}>
+              <strong style={{ display: 'block', fontWeight: 600, marginBottom: '8px', color: '#111111', fontSize: '1rem' }}>Erwin (Attack on Titan)</strong>
               Erwin embodies strategic brilliance and selfless sacrifice. He makes impossible decisions for the greater good, always putting his people first even when it costs him everything. His unwavering commitment to a cause bigger than himself and his ability to inspire hope in the darkest moments is truly remarkable.
-            </p>
+            </div>
           </div>
           
-          <div className="idol-item">
-            <img src="/photos/Klopp.png" alt="Jurgen Klopp" className="idol-image" loading="lazy" />
-            <p className="idol-caption">
-              <strong>Jurgen Klopp</strong>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <img 
+              src="/photos/Klopp.png" 
+              alt="Jurgen Klopp" 
+              style={{ 
+                width: '100%', 
+                aspectRatio: '4 / 5', 
+                objectFit: 'cover', 
+                border: '1px solid #E5E5E5',
+                borderRadius: '4px'
+              }} 
+              loading="eager"
+            />
+            <div style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.9rem', lineHeight: '1.6', color: '#727272' }}>
+              <strong style={{ display: 'block', fontWeight: 600, marginBottom: '8px', color: '#111111', fontSize: '1rem' }}>Jurgen Klopp</strong>
               Klopp's authenticity is magnetic. He builds family-like bonds with his players and fans, leading with passion, humor, and genuine care. His emotional intelligence and ability to connect with people on a human level—celebrating wins together and supporting through losses—shows what leadership rooted in love and respect looks like.
-            </p>
+            </div>
           </div>
         </div>
       </section>
