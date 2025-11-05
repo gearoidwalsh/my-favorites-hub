@@ -64,20 +64,26 @@ function App() {
       run();
     }
 
-    // Generate diamond particles
-    const count = 14;
+    // Generate MANY diamond particles scattered across hero
+    const count = 50; // Much more diamonds!
     for (let i = 0; i < count; i++) {
       const el = document.createElement('span');
       el.className = 'diamond';
-      el.style.setProperty('--x', Math.random() * 100 + 'vw');
-      el.style.setProperty('--yStart', (-10 - Math.random() * 20) + 'vh');
-      el.style.setProperty('--yEnd', (50 + Math.random() * 200) + 'px');
-      el.style.setProperty('--s', (6 + Math.random() * 10) + 'px');
-      el.style.setProperty('--delay', (120 + Math.random() * 900) + 'ms');
-      el.style.setProperty('--dur', (900 + Math.random() * 900) + 'ms');
+      // Scatter across entire width
+      el.style.setProperty('--x', (Math.random() * 100) + 'vw');
+      // Start from various heights above
+      el.style.setProperty('--yStart', (-20 - Math.random() * 40) + 'vh');
+      // End at various positions throughout the hero
+      el.style.setProperty('--yEnd', (Math.random() * 80) + 'vh');
+      // Vary sizes more
+      el.style.setProperty('--s', (4 + Math.random() * 14) + 'px');
+      // Stagger delays more
+      el.style.setProperty('--delay', (100 + Math.random() * 1200) + 'ms');
+      // Longer durations for more graceful falling
+      el.style.setProperty('--dur', (1400 + Math.random() * 1400) + 'ms');
       holder.appendChild(el);
       el.addEventListener('animationend', () => {
-        el.style.opacity = '.18';
+        el.style.opacity = '.15'; // Subtle ambient effect
       });
     }
   }, []);
