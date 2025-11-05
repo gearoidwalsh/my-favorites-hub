@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5555';
 
 // Movie data with posters
 const MOVIES = [
@@ -446,7 +444,7 @@ function CollegeSection() {
         <div className="polaroid-stack" style={{ height: '700px' }}>
           <div className="polaroid" style={{ top: '0', left: '0', width: '340px' }}>
             <div className="polaroid-image" style={{
-              backgroundImage: 'url(/photos/CSM #1.png)',
+              backgroundImage: 'url(/photos/CSM%20%231.png)',
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}>
@@ -455,7 +453,7 @@ function CollegeSection() {
           </div>
           <div className="polaroid" style={{ top: '80px', right: '-20px', width: '340px', transform: 'rotate(5deg)' }}>
             <div className="polaroid-image" style={{
-              backgroundImage: 'url(/photos/CSM #2.png)',
+              backgroundImage: 'url(/photos/CSM%20%232.png)',
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}>
@@ -464,7 +462,7 @@ function CollegeSection() {
           </div>
           <div className="polaroid" style={{ top: '400px', left: '40px', width: '340px', transform: 'rotate(-4deg)' }}>
             <div className="polaroid-image" style={{
-              backgroundImage: 'url(/photos/MidPoint Hormel.png)',
+              backgroundImage: 'url(/photos/MidPoint%20Hormel.png)',
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}>
@@ -512,7 +510,7 @@ function DogsSection() {
           </div>
           <div className="polaroid" style={{ top: '60px', right: '20px', width: '300px', transform: 'rotate(6deg)' }}>
             <div className="polaroid-image" style={{
-              backgroundImage: 'url(/photos/Lucy #2.png)',
+              backgroundImage: 'url(/photos/Lucy%20%232.png)',
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}>
@@ -521,7 +519,7 @@ function DogsSection() {
           </div>
           <div className="polaroid" style={{ top: '300px', left: '20px', width: '300px', transform: 'rotate(-5deg)' }}>
             <div className="polaroid-image" style={{
-              backgroundImage: 'url(/photos/Lucy #3.png)',
+              backgroundImage: 'url(/photos/Lucy%20%233.png)',
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}>
@@ -530,7 +528,7 @@ function DogsSection() {
           </div>
           <div className="polaroid" style={{ top: '340px', right: '-10px', width: '300px', transform: 'rotate(7deg)' }}>
             <div className="polaroid-image" style={{
-              backgroundImage: 'url(/photos/Lucy Smile.png)',
+              backgroundImage: 'url(/photos/Lucy%20Smile.png)',
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}>
@@ -539,7 +537,7 @@ function DogsSection() {
           </div>
           <div className="polaroid" style={{ top: '580px', left: '60px', width: '300px', transform: 'rotate(-4deg)' }}>
             <div className="polaroid-image" style={{
-              backgroundImage: 'url(/photos/Lucy walk.png)',
+              backgroundImage: 'url(/photos/Lucy%20walk.png)',
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}>
@@ -710,7 +708,7 @@ function FashionSection() {
           </div>
           <div className="polaroid">
             <div className="polaroid-image" style={{
-              backgroundImage: 'url(/photos/Bare Knuckles.png)',
+              backgroundImage: 'url(/photos/Bare%20Knuckles.png)',
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}>
