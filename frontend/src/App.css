@@ -80,36 +80,116 @@ body {
   transition: width 0.1s ease;
 }
 
-/* ==================== MAGAZINE HERO ==================== */
-.magazine-hero {
-  margin-top: 80px;
-  padding: 80px 48px 120px;
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
+/* ==================== NAVY HERO SECTION ==================== */
+.navy-hero {
+  margin-top: 61px;
+  background: #0A1A43;
+  padding: 100px 48px 140px;
+  position: relative;
+  overflow: hidden;
 }
 
-.hero-montage {
+/* Subtle navy-to-white gradient fade at bottom */
+.navy-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.04));
+  pointer-events: none;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 9vw, 112px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeInTitle 900ms ease 200ms forwards;
+}
+
+@keyframes fadeInTitle {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.hero-diamond-divider {
+  text-align: center;
+  color: #DDE3F0;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeInTitle 900ms ease 400ms forwards;
+}
+
+.hero-subtitle {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #DDE3F0;
+  text-align: center;
+  margin-bottom: 80px;
+  opacity: 0;
+  animation: fadeInTitle 900ms ease 600ms forwards;
+}
+
+/* Three-pillar triptych layout */
+.hero-triptych {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 16px;
-  margin-bottom: 48px;
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.hero-image {
+.hero-pillar {
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border: 1px solid #E5E5E5;
+  opacity: 0;
+  transform: translateY(16px);
 }
 
-.hero-dek {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: #333333;
-  max-width: 600px;
-  margin: 0;
+/* Staggered animation for triptych */
+.hero-pillar:nth-child(1) {
+  animation: fadeInPillar 800ms ease 800ms forwards;
+}
+
+.hero-pillar:nth-child(2) {
+  animation: fadeInPillar 800ms ease 890ms forwards;
+}
+
+.hero-pillar:nth-child(3) {
+  animation: fadeInPillar 800ms ease 980ms forwards;
+}
+
+@keyframes fadeInPillar {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ==================== ESSENTIAL SECTIONS ==================== */
@@ -179,8 +259,15 @@ body {
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #9A9A9A;
+  color: #727272;
   margin-bottom: 16px;
+}
+
+.section-number::before {
+  content: '◇';
+  margin-right: 12px;
+  color: #727272;
+  font-size: 0.8rem;
 }
 
 .section-title {
@@ -204,7 +291,7 @@ body {
   font-family: 'Inter', sans-serif;
   font-size: 1.05rem;
   line-height: 1.8;
-  color: #333333;
+  color: #111111;
   max-width: 650px;
 }
 
@@ -398,7 +485,7 @@ body {
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #333333;
+  color: #727272;
 }
 
 .idol-caption strong {
@@ -435,7 +522,7 @@ body {
   font-size: 0.75rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #9A9A9A;
+  color: #727272;
   margin-bottom: 32px;
 }
 
@@ -500,17 +587,23 @@ body {
     padding: 6px 8px;
   }
 
-  .magazine-hero {
-    padding: 60px 32px 80px;
+  .navy-hero {
+    padding: 60px 32px 100px;
   }
 
-  .hero-montage {
+  .hero-title {
+    margin-bottom: 20px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.65rem;
+    margin-bottom: 60px;
+  }
+
+  .hero-triptych {
     grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .hero-dek {
-    font-size: 1rem;
+    gap: 20px;
+    max-width: 400px;
   }
 
   .essential-section {
@@ -551,5 +644,16 @@ img[loading="lazy"].loaded {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+  
+  .hero-title,
+  .hero-diamond-divider,
+  .hero-subtitle,
+  .hero-pillar,
+  .studio-image,
+  .essential-section {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    animation: none !important;
   }
 }

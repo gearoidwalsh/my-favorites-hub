@@ -113,16 +113,19 @@ function App() {
         </nav>
       </header>
 
-      {/* Magazine Hero Opener */}
-      <section className="magazine-hero">
-        <div className="hero-montage">
-          <img src="/photos/Ireland.png" alt="Hero 1" className="hero-image" loading="eager" />
-          <img src="/photos/Lucy.png" alt="Hero 2" className="hero-image" loading="eager" />
-          <img src="/photos/Blond.png" alt="Hero 3" className="hero-image" loading="eager" />
+      {/* Navy Hero Section with Three-Pillar Layout */}
+      <section className="navy-hero">
+        <div className="hero-content">
+          <h1 className="hero-title">10 Things Gearoid Walsh Can't Live Without</h1>
+          <div className="hero-diamond-divider">◇</div>
+          <p className="hero-subtitle">A Personal Collection of Essential Moments</p>
+          
+          <div className="hero-triptych">
+            <img src="/photos/Diamond.png" alt="Diamond" className="hero-pillar" loading="eager" />
+            <img src="/photos/Hero.png" alt="Gearoid Walsh" className="hero-pillar" loading="eager" />
+            <img src="/photos/Diamond.png" alt="Diamond" className="hero-pillar" loading="eager" />
+          </div>
         </div>
-        <p className="hero-dek">
-          Ten essentials. Each one tells a story about moments, people, and experiences that shaped who I am.
-        </p>
       </section>
 
       {/* ESSENTIAL #01: SPORTS - Triptych A */}
