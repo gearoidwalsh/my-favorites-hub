@@ -153,10 +153,11 @@ body {
 /* Three-pillar triptych layout */
 .hero-triptych {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1.5fr;
   gap: 24px;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
+  align-items: center;
 }
 
 .hero-pillar {
@@ -166,6 +167,11 @@ body {
   border: 1px solid #E5E5E5;
   opacity: 0;
   transform: translateY(16px);
+}
+
+/* Center portrait (Hero) - smaller */
+.hero-pillar:nth-child(2) {
+  /* This will be smaller due to 1fr vs 1.5fr grid columns */
 }
 
 /* Staggered animation for triptych */
