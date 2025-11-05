@@ -187,18 +187,7 @@ function SportsSection() {
             <div className="polaroid-caption">Firmino magic ⚽</div>
           </div>
           
-          <div className="polaroid" style={{ top: '100px', right: '-20px', width: '340px', transform: 'rotate(4deg)' }}>
-            <div className="polaroid-image" style={{
-              height: '220px',
-              backgroundImage: 'url(/photos/Fantasy.png)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
-            }}>
-            </div>
-            <div className="polaroid-caption">Fantasy analysis 📊</div>
-          </div>
-          
-          <div className="polaroid" style={{ top: '400px', left: '30px', width: '340px', transform: 'rotate(-5deg)' }}>
+          <div className="polaroid" style={{ top: '280px', left: '30px', width: '360px', transform: 'rotate(-5deg)' }}>
             <div className="polaroid-image">
               <video
                 width="100%"
@@ -256,7 +245,16 @@ function IrelandSection() {
               backgroundPosition: 'center'
             }}>
             </div>
-            <div className="polaroid-caption">The Emerald Isle ☘️</div>
+            <div className="polaroid-caption">Irish summers ☘️</div>
+          </div>
+          <div className="polaroid">
+            <div className="polaroid-image" style={{
+              backgroundImage: 'url(/photos/Parents.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}>
+            </div>
+            <div className="polaroid-caption">Mom & Dad ❤️</div>
           </div>
         </div>
       </div>
@@ -336,7 +334,7 @@ function FoodSection() {
             </div>
             <div className="polaroid-caption">Sweet treats 🍩</div>
           </div>
-          <div className="polaroid" style={{ top: '220px', right: '10px', transform: 'rotate(-4deg)' }}>
+          <div className="polaroid" style={{ top: '220px', right: '10px', transform: 'rotate(-4deg)', width: '300px' }}>
             <div className="polaroid-image" style={{
               backgroundImage: 'url(/photos/Pizza.png)',
               backgroundSize: 'cover',
@@ -344,6 +342,15 @@ function FoodSection() {
             }}>
             </div>
             <div className="polaroid-caption">San Jose slice 🍕</div>
+          </div>
+          <div className="polaroid" style={{ top: '420px', left: '60px', transform: 'rotate(6deg)', width: '300px' }}>
+            <div className="polaroid-image" style={{
+              backgroundImage: 'url(/photos/MiddleEastern.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}>
+            </div>
+            <div className="polaroid-caption">Middle Eastern feast 🥙</div>
           </div>
         </div>
       </div>
@@ -374,7 +381,7 @@ function MusicSection() {
           </div>
           
           <div className="sub-story">
-            <h4>Frank Ocean Discovery</h4>
+            <h4>Pandemic Story</h4>
             <p>
               During the pandemic, I spent a lot of time riding my bike — mornings, afternoons, even late at night — just exploring new areas. One day, I rode farther than ever before, and that was the first time I listened to Blonde and Channel Orange by Frank Ocean. Those albums became instant favorites, and Frank has been my favorite artist ever since. That ride, with those songs playing for the first time, is something I'll always cherish.
             </p>
@@ -429,15 +436,15 @@ function CollegeSection() {
           </div>
           
           <div className="sub-story">
-            <h4>Voyager Consulting</h4>
+            <h4>Voyager Consulting/Berkeley Experience</h4>
             <p>
               So as I'm writing this, I'm actually still kind of new to Voyager. I'm halfway through my first semester, but I've really enjoyed it so far. It's a huge change of environment from community college, and it's been so fun to experience everything. Good people in the club :) — And that's what matters to me.
             </p>
           </div>
         </div>
         
-        <div className="polaroid-stack">
-          <div className="polaroid">
+        <div className="polaroid-stack" style={{ height: '700px' }}>
+          <div className="polaroid" style={{ top: '0', left: '0', width: '340px' }}>
             <div className="polaroid-image" style={{
               backgroundImage: 'url(/photos/CSM #1.png)',
               backgroundSize: 'cover',
@@ -446,7 +453,7 @@ function CollegeSection() {
             </div>
             <div className="polaroid-caption">Honors Showcase 📊</div>
           </div>
-          <div className="polaroid">
+          <div className="polaroid" style={{ top: '80px', right: '-20px', width: '340px', transform: 'rotate(5deg)' }}>
             <div className="polaroid-image" style={{
               backgroundImage: 'url(/photos/CSM #2.png)',
               backgroundSize: 'cover',
@@ -454,6 +461,15 @@ function CollegeSection() {
             }}>
             </div>
             <div className="polaroid-caption">CSM days 🎓</div>
+          </div>
+          <div className="polaroid" style={{ top: '400px', left: '40px', width: '340px', transform: 'rotate(-4deg)' }}>
+            <div className="polaroid-image" style={{
+              backgroundImage: 'url(/photos/MidPoint Hormel.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}>
+            </div>
+            <div className="polaroid-caption">Berkeley life 🐻</div>
           </div>
         </div>
       </div>
@@ -484,24 +500,60 @@ function DogsSection() {
           </div>
         </div>
         
-        <div className="polaroid-stack">
-          <div className="polaroid">
+        <div className="polaroid-stack" style={{ height: '900px' }}>
+          <div className="polaroid" style={{ top: '0', left: '0', width: '300px' }}>
             <div className="polaroid-image" style={{
               backgroundImage: 'url(/photos/Lucy.png)',
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}>
             </div>
-            <div className="polaroid-caption">Lucy the speedster 🐕</div>
+            <div className="polaroid-caption">Lucy 🐕</div>
           </div>
-          <div className="polaroid">
+          <div className="polaroid" style={{ top: '60px', right: '20px', width: '300px', transform: 'rotate(6deg)' }}>
+            <div className="polaroid-image" style={{
+              backgroundImage: 'url(/photos/Lucy #2.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}>
+            </div>
+            <div className="polaroid-caption">Lucy adventures 🏃‍♀️</div>
+          </div>
+          <div className="polaroid" style={{ top: '300px', left: '20px', width: '300px', transform: 'rotate(-5deg)' }}>
+            <div className="polaroid-image" style={{
+              backgroundImage: 'url(/photos/Lucy #3.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}>
+            </div>
+            <div className="polaroid-caption">Always smiling 😊</div>
+          </div>
+          <div className="polaroid" style={{ top: '340px', right: '-10px', width: '300px', transform: 'rotate(7deg)' }}>
+            <div className="polaroid-image" style={{
+              backgroundImage: 'url(/photos/Lucy Smile.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}>
+            </div>
+            <div className="polaroid-caption">That smile! 🌟</div>
+          </div>
+          <div className="polaroid" style={{ top: '580px', left: '60px', width: '300px', transform: 'rotate(-4deg)' }}>
+            <div className="polaroid-image" style={{
+              backgroundImage: 'url(/photos/Lucy walk.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}>
+            </div>
+            <div className="polaroid-caption">Beach walks 🏖️</div>
+          </div>
+          <div className="polaroid" style={{ top: '120px', left: '50%', transform: 'translateX(-50%) scale(2) rotate(-3deg)', width: '380px', zIndex: 20 }}>
             <div className="polaroid-image" style={{
               backgroundImage: 'url(/photos/Mamo.png)',
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}>
             </div>
-            <div className="polaroid-caption">Mamo 🐾</div>
+            <div className="polaroid-caption" style={{ fontSize: '1.8rem', fontWeight: 'bold' }}>Neansai 🐾</div>
           </div>
         </div>
       </div>
@@ -575,7 +627,7 @@ function MoviesSection() {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/bUuNS0gPwvs"
+                src="https://www.youtube.com/embed/BMCP4O5Hxs8"
                 title="Catch Me If You Can"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

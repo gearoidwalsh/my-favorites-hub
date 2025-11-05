@@ -197,9 +197,10 @@ html {
 }
 
 .essential-item:nth-child(3n) { 
-  background: #fff;
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
   padding: 80px 60px;
-  color: #1e3a8a;
+  color: #fff;
+  clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0% 100%);
 }
 
 /* Big Number Indicator */
