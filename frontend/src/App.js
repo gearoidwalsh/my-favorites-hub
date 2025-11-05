@@ -64,26 +64,39 @@ function App() {
       run();
     }
 
-    // Generate MANY diamond particles scattered across hero
-    const count = 50; // Much more diamonds!
+    // Generate LOTS of diamond particles scattered across hero (avoiding portrait)
+    const count = 80; // Even more diamonds!
     for (let i = 0; i < count; i++) {
       const el = document.createElement('span');
       el.className = 'diamond';
-      // Scatter across entire width
-      el.style.setProperty('--x', (Math.random() * 100) + 'vw');
+      
+      const xPos = Math.random() * 100;
+      el.style.setProperty('--x', xPos + 'vw');
+      
       // Start from various heights above
-      el.style.setProperty('--yStart', (-20 - Math.random() * 40) + 'vh');
-      // End at various positions throughout the hero
-      el.style.setProperty('--yEnd', (Math.random() * 80) + 'vh');
+      el.style.setProperty('--yStart', (-20 - Math.random() * 50) + 'vh');
+      
+      // End position: avoid portrait area (center 30-70% horizontally, and lower 40% vertically)
+      // If in center zone, keep diamonds in upper portion only
+      let yEnd;
+      if (xPos > 30 && xPos < 70) {
+        // Center zone - diamonds stay in upper 50% only (avoid portrait)
+        yEnd = Math.random() * 40; // 0-40vh (upper half)
+      } else {
+        // Side zones - can fall further down
+        yEnd = Math.random() * 75; // 0-75vh
+      }
+      el.style.setProperty('--yEnd', yEnd + 'vh');
+      
       // Vary sizes more
       el.style.setProperty('--s', (4 + Math.random() * 14) + 'px');
       // Stagger delays more
-      el.style.setProperty('--delay', (100 + Math.random() * 1200) + 'ms');
+      el.style.setProperty('--delay', (100 + Math.random() * 1500) + 'ms');
       // Longer durations for more graceful falling
-      el.style.setProperty('--dur', (1400 + Math.random() * 1400) + 'ms');
+      el.style.setProperty('--dur', (1400 + Math.random() * 1600) + 'ms');
       holder.appendChild(el);
       el.addEventListener('animationend', () => {
-        el.style.opacity = '.15'; // Subtle ambient effect
+        el.style.opacity = '.12'; // Subtle ambient effect
       });
     }
   }, []);
