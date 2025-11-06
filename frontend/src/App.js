@@ -635,8 +635,31 @@ function App() {
               </p>
             </div>
             
-            <img src="/photos/Micheal.png" alt="Family Memory" className="studio-image" loading="lazy" />
-            <img src="/photos/Aodan.png" alt="Aodan" className="studio-image" loading="lazy" />
+            <img 
+              src="/photos/Micheal.png" 
+              alt="Micheal" 
+              style={{ 
+                width: '100%', 
+                aspectRatio: '4 / 5', 
+                objectFit: 'cover', 
+                border: '1px solid #E5E5E5',
+                borderRadius: '4px',
+                marginBottom: '16px'
+              }} 
+              loading="eager"
+            />
+            <img 
+              src="/photos/Aodan.png" 
+              alt="Aodan" 
+              style={{ 
+                width: '100%', 
+                aspectRatio: '4 / 5', 
+                objectFit: 'cover', 
+                border: '1px solid #E5E5E5',
+                borderRadius: '4px'
+              }} 
+              loading="eager"
+            />
           </div>
           
           <img src="/photos/Pumpkin%20Patch.png" alt="Family Memory" className="studio-image image-large" loading="lazy" />
