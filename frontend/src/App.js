@@ -636,7 +636,6 @@ function App() {
             </div>
             
             <img src="/photos/Micheal.png" alt="Family Memory" className="studio-image" loading="lazy" />
-            <img src="/photos/Aodan.png" alt="Aodan" className="studio-image" loading="lazy" />
           </div>
           
           <img src="/photos/Pumpkin%20Patch.png" alt="Family Memory" className="studio-image image-large" loading="lazy" />
