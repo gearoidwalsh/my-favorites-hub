@@ -251,7 +251,7 @@ function App() {
               
               <h3>How My Parents Met</h3>
               <p>
-                My parents met in a pretty classic Irish way — at a pub in Dublin. My dad was visiting from Galway, and my mom was out with friends. They hit it off immediately, and the rest, as they say, is history.
+                My parents actually met the year the world cup was held in America in '94. My dad, from Galway, and my mother, from Dublin, both decided to visit Boston that summer to support Ireland. They ran into each other in a bar, and now I'm here. San Mateo/Berkeley California. No place I'd rather be; Ireland and California.
               </p>
             </div>
             
@@ -636,6 +636,7 @@ function App() {
             </div>
             
             <img src="/photos/Micheal.png" alt="Family Memory" className="studio-image" loading="lazy" />
+            <img src="/photos/Aodan.png" alt="Aodan" className="studio-image" loading="lazy" />
           </div>
           
           <img src="/photos/Pumpkin%20Patch.png" alt="Family Memory" className="studio-image image-large" loading="lazy" />
