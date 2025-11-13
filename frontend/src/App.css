@@ -96,6 +96,16 @@ body {
   font-family:"Playfair Display",serif; font-weight:700;
   font-size:clamp(48px,9vw,112px); line-height:.98;
   opacity:0; transform:translateY(80px) scale(0.9);
+  text-align:center;
+  max-width:90%;
+  margin:0 auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 .hero-subtitle{
   font-family:"Space Mono",monospace; text-transform:uppercase;

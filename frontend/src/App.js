@@ -41,16 +41,51 @@ const SECTIONS = [
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeSection, setActiveSection] = useState('sports');
+  const [darkMode, setDarkMode] = useState(false);
+  const [titleText, setTitleText] = useState('');
   const diamondsRef = useRef(null);
+  const heroRef = useRef(null);
+  const titleRef = useRef(null);
+  
+  const fullTitle = "10 Things Gearoid Walsh Can't Live Without";
 
-  // Hero entrance animation with diamond particles
+  // Dark mode toggle
   useEffect(() => {
-    const hero = document.getElementById('hero');
+    document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+    if (darkMode) {
+      document.body.style.backgroundColor = '#0A0A0A';
+      document.body.style.color = '#F4F4F4';
+    } else {
+      document.body.style.backgroundColor = '#FFFFFF';
+      document.body.style.color = '#111111';
+    }
+  }, [darkMode]);
+
+  // Hero entrance animation with diamond particles and typewriter
+  useEffect(() => {
+    const hero = heroRef.current;
     const holder = diamondsRef.current;
     
     if (!hero || !holder) return;
 
-    const run = () => hero.classList.add('animate');
+    const run = () => {
+      hero.classList.add('animate');
+      
+      // Start typewriter effect simultaneously with diamonds
+      let currentIndex = 0;
+      const typeSpeed = 30; // Fast typing speed (30ms per character)
+      
+      const typeWriter = () => {
+        if (currentIndex < fullTitle.length) {
+          setTitleText(fullTitle.substring(0, currentIndex + 1));
+          currentIndex++;
+          setTimeout(typeWriter, typeSpeed);
+        }
+      };
+      
+      // Start typing immediately when animation begins
+      typeWriter();
+    };
 
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver(e => {
@@ -170,13 +205,43 @@ function App() {
               {section.name}
             </button>
           ))}
+          <button 
+            className="dark-mode-toggle"
+            onClick={() => setDarkMode(!darkMode)}
+            aria-label="Toggle dark mode"
+            style={{
+              fontSize: '1.2rem',
+              cursor: 'pointer',
+              background: 'none',
+              border: 'none',
+              padding: '8px 12px',
+              marginLeft: 'auto',
+              transition: 'transform 0.3s ease',
+            }}
+          >
+            {darkMode ? '☀️' : '🌙'}
+          </button>
         </nav>
       </header>
 
       {/* Animated Hero Section */}
-      <section className="hero" id="hero">
+      <section className="hero" id="hero" ref={heroRef}>
         <div className="hero-inner">
-          <h1 className="hero-title">10 Things Gearoid Walsh Can't Live Without</h1>
+          <h1 className="hero-title" ref={titleRef} style={{ textAlign: 'center', maxWidth: '90%', margin: '0 auto' }}>
+            {titleText || fullTitle}
+            {titleText.length < fullTitle.length && (
+              <span 
+                style={{
+                  display: 'inline-block',
+                  marginLeft: '4px',
+                  animation: 'blink 1s infinite',
+                  color: 'var(--diamond)',
+                }}
+              >
+                |
+              </span>
+            )}
+          </h1>
           <div className="hero-subtitle">
             <span className="diamond-sep">◇</span>
             A PERSONAL COLLECTION OF ESSENTIAL MOMENTS
