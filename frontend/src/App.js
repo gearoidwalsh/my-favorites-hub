@@ -65,33 +65,34 @@ function App() {
     }
 
     // Generate LOTS of diamond particles scattered across hero (avoiding portrait)
-    const count = 80; // Even more diamonds!
+    const count = 180; // Many more diamonds distributed across hero
     for (let i = 0; i < count; i++) {
       const el = document.createElement('span');
       el.className = 'diamond';
       
-      const xPos = Math.random() * 100;
+      // Force distribution: 50% on left, 50% on right, avoid center (where photo is)
+      let xPos;
+      if (i < count / 2) {
+        // Left side: 5% to 38% (avoid center)
+        xPos = 5 + Math.random() * 33;
+      } else {
+        // Right side: 62% to 95% (avoid center)
+        xPos = 62 + Math.random() * 33;
+      }
       el.style.setProperty('--x', xPos + 'vw');
       
       // Start from various heights above
       el.style.setProperty('--yStart', (-20 - Math.random() * 50) + 'vh');
       
-      // End position: avoid portrait area (center 30-70% horizontally, and lower 40% vertically)
-      // If in center zone, keep diamonds in upper portion only
-      let yEnd;
-      if (xPos > 30 && xPos < 70) {
-        // Center zone - diamonds stay in upper 50% only (avoid portrait)
-        yEnd = Math.random() * 40; // 0-40vh (upper half)
-      } else {
-        // Side zones - can fall further down
-        yEnd = Math.random() * 75; // 0-75vh
-      }
+      // End position: diamonds on sides can fall across full height
+      // Avoid center zone completely for photo area
+      const yEnd = Math.random() * 85; // 0-85vh (full height available on sides)
       el.style.setProperty('--yEnd', yEnd + 'vh');
       
       // Vary sizes more
       el.style.setProperty('--s', (4 + Math.random() * 14) + 'px');
-      // Stagger delays more
-      el.style.setProperty('--delay', (100 + Math.random() * 1500) + 'ms');
+      // Stagger delays more for natural scatter
+      el.style.setProperty('--delay', (100 + Math.random() * 1800) + 'ms');
       // Longer durations for more graceful falling
       el.style.setProperty('--dur', (1400 + Math.random() * 1600) + 'ms');
       holder.appendChild(el);
@@ -181,7 +182,7 @@ function App() {
             A PERSONAL COLLECTION OF ESSENTIAL MOMENTS
             <span className="diamond-sep">◇</span>
           </div>
-          <img className="hero-portrait" src="/photos/Hero.png" alt="Gearoid Walsh portrait" />
+          <img className="hero-portrait" src="/photos/HeroCard.png" alt="Gearoid Walsh portrait" />
           <div className="hero-diamonds" ref={diamondsRef}></div>
         </div>
       </section>

@@ -107,9 +107,10 @@ body {
 .hero-subtitle .diamond-sep{ color:var(--diamond); margin:0 10px; font-size:12px; }
 
 .hero-portrait{
-  width:clamp(260px,28vw,420px); aspect-ratio:4/5; object-fit:cover;
-  border-radius:12px; border:1px solid var(--hair);
+  width:clamp(260px,28vw,420px); aspect-ratio:4/5; object-fit:contain;
+  border-radius:12px; border:none;
   opacity:0; transform:translateY(100px) scale(.85);
+  background:transparent; /* Ensure transparent background shows through */
 }
 
 /* Faint diamond lattice background */
