@@ -87,10 +87,10 @@ body {
   color:#F4F7FC;
   min-height: clamp(520px, 86vh, 980px);
   padding-block: clamp(120px, 18vh, 240px);
-  position:relative; overflow:hidden; text-align:center;
+  position:relative; overflow:visible; text-align:center;
   margin-top: 61px;
 }
-.hero-inner{ max-width: 1200px; margin:0 auto; padding-inline:24px; position: relative; z-index: 2; }
+.hero-inner{ max-width: 1200px; margin:0 auto; padding-inline:24px; position: relative; z-index: 3; }
 
 .hero-title{
   font-family:"Playfair Display",serif; font-weight:700;
@@ -143,37 +143,53 @@ body {
   z-index: 1;
 }
 
-/* Diamond particles - BEHIND content */
+/* Diamond particles - BEHIND content but above background */
 .hero-diamonds{ 
   position:absolute; 
-  inset:0; 
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:100%;
   pointer-events:none; 
-  z-index: 0; 
-  overflow: hidden;
+  z-index: 1; /* Above background, below content */
+  overflow: visible; /* Allow diamonds to be visible across full width */
 }
 .diamond{
   position:absolute; 
+  left:var(--x,50vw);
+  top:0;
   width:var(--s,10px); 
   height:var(--s,10px);
-  background:linear-gradient(180deg,rgba(244,247,252,0.8),rgba(197,208,236,0.6));
+  background:linear-gradient(135deg,rgba(244,247,252,0.95),rgba(197,208,236,0.75));
   transform:translate(-50%,-50%) rotate(45deg);
-  border:.5px solid rgba(255,255,255,.4);
+  border:0.5px solid rgba(255,255,255,0.6);
   opacity:0; 
   animation:fall var(--dur,2000ms) cubic-bezier(0.25, 0.46, 0.45, 0.94) var(--delay,0ms) forwards;
-  box-shadow: 0 2px 8px rgba(197,208,236,0.3);
+  box-shadow: 0 3px 12px rgba(197,208,236,0.5), 0 0 10px rgba(244,247,252,0.3);
+  will-change: transform, opacity, top;
 }
 @keyframes fall{
   0%{ 
     opacity:0; 
-    transform:translate(var(--x,0),var(--yStart,-30vh)) rotate(45deg) scale(.7);
+    top:var(--yStart,-30vh);
+    transform:translate(-50%,-50%) rotate(45deg) scale(.5);
   }
-  50%{ 
+  20%{ 
+    opacity:0.6; 
+  }
+  40%{ 
     opacity:1; 
-    transform:translate(var(--x,0),calc(var(--yEnd,0) * 0.5)) rotate(90deg) scale(1.1);
+    transform:translate(-50%,-50%) rotate(75deg) scale(1.1);
+  }
+  60%{ 
+    transform:translate(-50%,-50%) rotate(105deg) scale(1.05);
   }
   100%{ 
     opacity:1; 
-    transform:translate(var(--x,0),var(--yEnd,0)) rotate(135deg) scale(1);
+    top:var(--yEnd,50vh);
+    transform:translate(-50%,-50%) rotate(135deg) scale(1);
   }
 }
 

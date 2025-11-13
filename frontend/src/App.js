@@ -118,7 +118,7 @@ function App() {
       
       // Start typewriter effect simultaneously with diamonds
       let currentIndex = 0;
-      const typeSpeed = 30; // Fast typing speed (30ms per character)
+      const typeSpeed = 60; // Slower typing speed (60ms per character - half the original speed)
       
       const typeWriter = () => {
         if (currentIndex < fullTitle.length) {
