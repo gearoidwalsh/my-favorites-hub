@@ -52,12 +52,57 @@ function App() {
   // Dark mode toggle
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+    const root = document.documentElement;
+    const sections = document.querySelectorAll('.essential-section, .essentials-rail, .footer');
+    
     if (darkMode) {
       document.body.style.backgroundColor = '#0A0A0A';
       document.body.style.color = '#F4F4F4';
+      root.style.setProperty('--bg-primary', '#0A0A0A');
+      root.style.setProperty('--text-primary', '#F4F4F4');
+      root.style.setProperty('--text-muted', '#707070');
+      root.style.setProperty('--border-color', '#333333');
+      root.style.setProperty('--section-bg', '#111111');
+      sections.forEach(section => {
+        section.style.backgroundColor = '#111111';
+        section.style.color = '#F4F4F4';
+      });
+      // Update rail
+      const rail = document.querySelector('.essentials-rail');
+      if (rail) {
+        rail.style.backgroundColor = '#0A0A0A';
+        rail.style.borderBottomColor = '#333333';
+      }
+      // Update footer
+      const footer = document.querySelector('.footer');
+      if (footer) {
+        footer.style.backgroundColor = '#0A0A0A';
+        footer.style.borderTopColor = '#333333';
+      }
     } else {
       document.body.style.backgroundColor = '#FFFFFF';
       document.body.style.color = '#111111';
+      root.style.setProperty('--bg-primary', '#FFFFFF');
+      root.style.setProperty('--text-primary', '#111111');
+      root.style.setProperty('--text-muted', '#9A9A9A');
+      root.style.setProperty('--border-color', '#E5E5E5');
+      root.style.setProperty('--section-bg', '#FFFFFF');
+      sections.forEach(section => {
+        section.style.backgroundColor = '#FFFFFF';
+        section.style.color = '#111111';
+      });
+      // Update rail
+      const rail = document.querySelector('.essentials-rail');
+      if (rail) {
+        rail.style.backgroundColor = '#FFFFFF';
+        rail.style.borderBottomColor = '#E5E5E5';
+      }
+      // Update footer
+      const footer = document.querySelector('.footer');
+      if (footer) {
+        footer.style.backgroundColor = '#FFFFFF';
+        footer.style.borderTopColor = '#E5E5E5';
+      }
     }
   }, [darkMode]);
 
@@ -100,39 +145,44 @@ function App() {
     }
 
     // Generate LOTS of diamond particles scattered across hero (avoiding portrait)
-    const count = 180; // Many more diamonds distributed across hero
+    const count = 280; // Many more diamonds for better coverage
+    const photoCenterX = 50; // Photo is centered at 50vw
+    const photoWidth = 28; // Photo is approximately 28vw wide
+    
     for (let i = 0; i < count; i++) {
       const el = document.createElement('span');
       el.className = 'diamond';
       
-      // Force distribution: 50% on left, 50% on right, avoid center (where photo is)
+      // Force distribution: ensure equal left and right distribution
       let xPos;
-      if (i < count / 2) {
-        // Left side: 5% to 38% (avoid center)
-        xPos = 5 + Math.random() * 33;
+      const isLeft = i % 2 === 0; // Alternate between left and right
+      
+      if (isLeft) {
+        // Left side: 2% to 32% (well clear of photo center at 36%+)
+        xPos = 2 + Math.random() * 30;
       } else {
-        // Right side: 62% to 95% (avoid center)
-        xPos = 62 + Math.random() * 33;
+        // Right side: 68% to 98% (well clear of photo edge at 64%+)
+        xPos = 68 + Math.random() * 30;
       }
       el.style.setProperty('--x', xPos + 'vw');
       
       // Start from various heights above
-      el.style.setProperty('--yStart', (-20 - Math.random() * 50) + 'vh');
+      el.style.setProperty('--yStart', (-30 - Math.random() * 60) + 'vh');
       
       // End position: diamonds on sides can fall across full height
-      // Avoid center zone completely for photo area
-      const yEnd = Math.random() * 85; // 0-85vh (full height available on sides)
+      // Distribute evenly from top to bottom
+      const yEnd = 10 + Math.random() * 80; // 10vh to 90vh (full visible range)
       el.style.setProperty('--yEnd', yEnd + 'vh');
       
-      // Vary sizes more
-      el.style.setProperty('--s', (4 + Math.random() * 14) + 'px');
-      // Stagger delays more for natural scatter
-      el.style.setProperty('--delay', (100 + Math.random() * 1800) + 'ms');
-      // Longer durations for more graceful falling
-      el.style.setProperty('--dur', (1400 + Math.random() * 1600) + 'ms');
+      // Vary sizes more for visual interest
+      el.style.setProperty('--s', (5 + Math.random() * 16) + 'px');
+      // Stagger delays for natural cascading effect
+      el.style.setProperty('--delay', (50 + Math.random() * 2000) + 'ms');
+      // Vary durations for more organic movement
+      el.style.setProperty('--dur', (1200 + Math.random() * 2000) + 'ms');
       holder.appendChild(el);
       el.addEventListener('animationend', () => {
-        el.style.opacity = '.12'; // Subtle ambient effect
+        el.style.opacity = '.25'; // More visible ambient effect
       });
     }
   }, []);
@@ -227,9 +277,9 @@ function App() {
       {/* Animated Hero Section */}
       <section className="hero" id="hero" ref={heroRef}>
         <div className="hero-inner">
-          <h1 className="hero-title" ref={titleRef} style={{ textAlign: 'center', maxWidth: '90%', margin: '0 auto' }}>
+          <h1 className="hero-title" ref={titleRef}>
             {titleText || fullTitle}
-            {titleText.length < fullTitle.length && (
+            {titleText.length > 0 && titleText.length < fullTitle.length && (
               <span 
                 style={{
                   display: 'inline-block',
