@@ -46,6 +46,9 @@ function App() {
   const diamondsRef = useRef(null);
   const heroRef = useRef(null);
   const titleRef = useRef(null);
+  const backgroundOrbsRef = useRef(null);
+  const backgroundPathsRef = useRef(null);
+  const backgroundParticlesRef = useRef(null);
   
   const fullTitle = "10 Things Gearoid Walsh Can't Live Without";
 
@@ -62,45 +65,45 @@ function App() {
       root.style.setProperty('--text-primary', '#F4F4F4');
       root.style.setProperty('--text-muted', '#707070');
       root.style.setProperty('--border-color', '#333333');
-      root.style.setProperty('--section-bg', '#111111');
+      root.style.setProperty('--section-bg', 'rgba(17, 17, 17, 0.98)');
       sections.forEach(section => {
-        section.style.backgroundColor = '#111111';
+        section.style.backgroundColor = 'rgba(17, 17, 17, 0.98)';
         section.style.color = '#F4F4F4';
       });
       // Update rail
       const rail = document.querySelector('.essentials-rail');
       if (rail) {
-        rail.style.backgroundColor = '#0A0A0A';
+        rail.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
         rail.style.borderBottomColor = '#333333';
       }
       // Update footer
       const footer = document.querySelector('.footer');
       if (footer) {
-        footer.style.backgroundColor = '#0A0A0A';
+        footer.style.backgroundColor = 'rgba(10, 10, 10, 0.98)';
         footer.style.borderTopColor = '#333333';
       }
     } else {
-      document.body.style.backgroundColor = '#FFFFFF';
+      document.body.style.backgroundColor = '#0A0A0A'; // Keep dark base for animated background
       document.body.style.color = '#111111';
       root.style.setProperty('--bg-primary', '#FFFFFF');
       root.style.setProperty('--text-primary', '#111111');
       root.style.setProperty('--text-muted', '#9A9A9A');
       root.style.setProperty('--border-color', '#E5E5E5');
-      root.style.setProperty('--section-bg', '#FFFFFF');
+      root.style.setProperty('--section-bg', 'rgba(255, 255, 255, 0.98)');
       sections.forEach(section => {
-        section.style.backgroundColor = '#FFFFFF';
+        section.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
         section.style.color = '#111111';
       });
       // Update rail
       const rail = document.querySelector('.essentials-rail');
       if (rail) {
-        rail.style.backgroundColor = '#FFFFFF';
+        rail.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
         rail.style.borderBottomColor = '#E5E5E5';
       }
       // Update footer
       const footer = document.querySelector('.footer');
       if (footer) {
-        footer.style.backgroundColor = '#FFFFFF';
+        footer.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
         footer.style.borderTopColor = '#E5E5E5';
       }
     }
@@ -187,16 +190,113 @@ function App() {
     }
   }, []);
 
-  // Scroll progress bar
+  // Scroll progress bar and background parallax
   useEffect(() => {
     const updateScrollProgress = () => {
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (window.scrollY / scrollHeight) * 100;
+      const progress = scrollHeight > 0 ? Math.min(100, Math.max(0, (window.scrollY / scrollHeight) * 100)) : 0;
       setScrollProgress(progress);
+      
+      // Update scroll position for background parallax effects
+      const scrollY = window.scrollY;
+      document.documentElement.style.setProperty('--scroll-y', `${scrollY}px`);
+      document.documentElement.style.setProperty('--scroll-progress', `${progress}`);
     };
 
-    window.addEventListener('scroll', updateScrollProgress);
-    return () => window.removeEventListener('scroll', updateScrollProgress);
+    const handleScroll = () => {
+      requestAnimationFrame(updateScrollProgress);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    updateScrollProgress(); // Initial call
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Create animated background elements (light orbs, dashed paths, particles)
+  useEffect(() => {
+    const orbsContainer = backgroundOrbsRef.current;
+    const pathsContainer = backgroundPathsRef.current;
+    const particlesContainer = backgroundParticlesRef.current;
+    
+    if (!orbsContainer || !pathsContainer || !particlesContainer) return;
+    
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+    
+    // Create 5-6 moving light orbs
+    const orbCount = 6;
+    for (let i = 0; i < orbCount; i++) {
+      const orb = document.createElement('div');
+      orb.className = 'bg-orb';
+      
+      // Random positioning
+      const xPos = Math.random() * 100;
+      const yPos = Math.random() * 100;
+      const size = 200 + Math.random() * 400; // 200-600px
+      const duration = 15 + Math.random() * 20; // 15-35s
+      const delay = Math.random() * 5;
+      
+      orb.style.setProperty('--orb-x', `${xPos}%`);
+      orb.style.setProperty('--orb-y', `${yPos}%`);
+      orb.style.setProperty('--orb-size', `${size}px`);
+      orb.style.setProperty('--orb-duration', `${duration}s`);
+      orb.style.setProperty('--orb-delay', `${delay}s`);
+      
+      // Random color variation
+      const hue = 200 + Math.random() * 60; // Blue-purple range
+      orb.style.setProperty('--orb-hue', `${hue}`);
+      
+      orbsContainer.appendChild(orb);
+    }
+    
+    // Create animated dashed path lines
+    const pathCount = 8;
+    for (let i = 0; i < pathCount; i++) {
+      const path = document.createElement('div');
+      path.className = 'bg-path';
+      
+      const startX = Math.random() * 100;
+      const startY = Math.random() * 100;
+      const endX = Math.random() * 100;
+      const endY = Math.random() * 100;
+      const duration = 20 + Math.random() * 15; // 20-35s
+      const delay = Math.random() * 10;
+      const opacity = 0.03 + Math.random() * 0.05; // Very subtle
+      
+      path.style.setProperty('--path-start-x', `${startX}%`);
+      path.style.setProperty('--path-start-y', `${startY}%`);
+      path.style.setProperty('--path-end-x', `${endX}%`);
+      path.style.setProperty('--path-end-y', `${endY}%`);
+      path.style.setProperty('--path-duration', `${duration}s`);
+      path.style.setProperty('--path-delay', `${delay}s`);
+      path.style.setProperty('--path-opacity', opacity.toString());
+      
+      pathsContainer.appendChild(path);
+    }
+    
+    // Create additional sparkle particles
+    const particleCount = 150;
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'bg-particle';
+      
+      const xPos = Math.random() * 100;
+      const yStart = -10 - Math.random() * 20;
+      const yEnd = 110 + Math.random() * 20;
+      const size = 2 + Math.random() * 4;
+      const duration = 8 + Math.random() * 12;
+      const delay = Math.random() * 8;
+      
+      particle.style.setProperty('--particle-x', `${xPos}%`);
+      particle.style.setProperty('--particle-y-start', `${yStart}%`);
+      particle.style.setProperty('--particle-y-end', `${yEnd}%`);
+      particle.style.setProperty('--particle-size', `${size}px`);
+      particle.style.setProperty('--particle-duration', `${duration}s`);
+      particle.style.setProperty('--particle-delay', `${delay}s`);
+      
+      particlesContainer.appendChild(particle);
+    }
   }, []);
 
   // Intersection Observer for fade-in animations and active section tracking
@@ -240,6 +340,16 @@ function App() {
 
   return (
     <div className="App">
+      {/* Animated Background Layers */}
+      <div className="animated-background">
+        <div className="bg-layer bg-base-gradient"></div>
+        <div className="bg-layer bg-orbs" ref={backgroundOrbsRef}></div>
+        <div className="bg-layer bg-paths" ref={backgroundPathsRef}></div>
+        <div className="bg-layer bg-particles" ref={backgroundParticlesRef}></div>
+        <div className="bg-layer bg-texture"></div>
+        <div className="bg-layer bg-motion-lines"></div>
+      </div>
+      
       {/* Scroll Progress Bar */}
       <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }}></div>
 
